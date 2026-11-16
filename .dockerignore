@@ -1,0 +1,16 @@
+**/node_modules
+**/.expo
+**/dist
+**/dist-web
+**/web-build
+**/.env
+**/.env.*
+!**/.env.example
+backend/storage
+.git
+docs
+e2e
+coverage
+test-results
+playwright-report
+*.log

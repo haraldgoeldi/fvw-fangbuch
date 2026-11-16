@@ -1,0 +1,89 @@
+{
+  "expo": {
+    "name": "Fangbuch FV Werdenberg",
+    "slug": "fangbuch-fvw",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ch.fvwerdenberg.fangbuch",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Der Standort wird nur nach Ihrer Zustimmung verwendet, um Ihre Position auf der Gewässerkarte zu zeigen, ein Gewässer vorzuschlagen und vor gesperrten Bereichen zu warnen. Er wird nicht an den Verein übermittelt und nicht gespeichert.",
+        "NSCameraUsageDescription": "Die Kamera wird für Fotos zu Meldungen und Kontrollen sowie zum Scannen von Patent-QR-Codes verwendet.",
+        "NSPhotoLibraryUsageDescription": "Fotos aus der Mediathek können optional zu einer Meldung hinzugefügt werden."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "ch.fvwerdenberg.fangbuch",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "CAMERA"
+      ],
+      "blockedPermissions": [
+        "ACCESS_BACKGROUND_LOCATION",
+        "RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "asyncRoutes": false
+        }
+      ],
+      [
+        "expo-sqlite",
+        {
+          "useSQLCipher": true
+        }
+      ],
+      "expo-secure-store",
+      "expo-sharing",
+      "expo-asset",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Der Standort wird nur nach Ihrer Zustimmung verwendet, um Ihre Position auf der Gewässerkarte zu zeigen, ein Gewässer vorzuschlagen und vor gesperrten Bereichen zu warnen. Er wird nicht an den Verein übermittelt und nicht gespeichert.",
+          "isAndroidBackgroundLocationEnabled": false
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Die Kamera wird für Fotos zu Meldungen und Kontrollen sowie zum Scannen von Patent-QR-Codes verwendet.",
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Fotos aus der Mediathek können optional zu einer Meldung hinzugefügt werden.",
+          "cameraPermission": "Die Kamera wird für Fotos zu Meldungen und Kontrollen verwendet."
+        }
+      ]
+    ],
+    "scheme": "fangbuchfvw",
+    "description": "Digitales Fangbuch, Gewässerkarte und Patentausweis des Fischereivereins Werdenberg (Prototyp).",
+    "experiments": {
+      "typedRoutes": false
+    },
+    "extra": {
+      "apiUrl": "http://localhost:8787"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+ "closed": {
+  "lon": 9.495985,
+  "lat": 47.25082,
+  "name": "Eisenbahnbächli",
+  "msg": "Achtung: Sie befinden sich vermutlich an einem gesperrten Abschnitt: Eisenbahnbächli. Fischen ist hier verboten."
+ },
+ "unclear": {
+  "lon": 9.5095226,
+  "lat": 47.1204626,
+  "name": "Werdenberger Binnenkanal",
+  "msg": "Sie befinden sich vermutlich an «Werdenberger Binnenkanal». Die Regel ist dort noch nicht geklärt (Vorstandsklärung erforderlich)."
+ },
+ "ok": {
+  "lon": 9.406829,
+  "lat": 47.183662,
+  "name": "Lehnbach",
+  "msg": "Sie befinden sich vermutlich am Gewässer «Lehnbach» (Natur- & Kunstköder – ohne Spinner, Löffel, Wobbler, künstl. Köderfische)."
+ },
+ "outside": {
+  "lon": 9.4,
+  "lat": 47.25,
+  "level": "outside"
+ }
+}

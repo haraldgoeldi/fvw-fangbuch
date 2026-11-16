@@ -1,0 +1,3745 @@
+[
+ {
+  "key": "ackerbach",
+  "name": "Ackerbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-1heotpjrx3r"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.418298,
+   47.196298,
+   9.420211,
+   47.20031
+  ]
+ },
+ {
+  "key": "aebi-weiher",
+  "name": "Aebi Weiher",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-bz7kziyy9w",
+   "aktive-1649z4cclms",
+   "jugend-qdb51bxkea",
+   "jugend-2402py74fdq"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.505604,
+   47.259665,
+   9.50685,
+   47.260288
+  ]
+ },
+ {
+  "key": "aegetenbaechli",
+  "name": "Aegetenbächli",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-18weufhp6c9",
+   "jugend-60rmsf98t7"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.508189,
+   47.260861,
+   9.51532,
+   47.26501
+  ]
+ },
+ {
+  "key": "afagristbaechli",
+  "name": "Afagristbächli",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-yotx2o5aug",
+   "aktive-zd5zpyf9s8",
+   "aktive-wfzy99no6f"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.427709,
+   47.209402,
+   9.440236,
+   47.211401
+  ]
+ },
+ {
+  "key": "afrikasee",
+  "name": "Afrikasee",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-2cuhddu8arw",
+   "jugend-2ge1tdykavj"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.490092,
+   47.157115,
+   9.492128,
+   47.158741
+  ]
+ },
+ {
+  "key": "alter-buchserbach",
+  "name": "Alter Buchserbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   190
+  ],
+  "sectionIds": [
+   "aktive-1x2qqzhtuhx",
+   "jugend-1328w11kpc7"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.468263,
+   47.15974,
+   9.470634,
+   47.166221
+  ]
+ },
+ {
+  "key": "amaggusabach",
+  "name": "Amaggusabach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-1bqitxokazw"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.389301,
+   47.178551,
+   9.410937,
+   47.180647
+  ]
+ },
+ {
+  "key": "bahngraben",
+  "name": "Bahngraben",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-1axq5wk1cmm",
+   "aktive-7xfb4fknxi",
+   "jugend-28ozzkj5vg0",
+   "jugend-26iwousp4zj",
+   "jugend-2bpb2yp7c84",
+   "jugend-1153dunllhc"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.484719,
+   47.116055,
+   9.497184,
+   47.15127
+  ]
+ },
+ {
+  "key": "bongertbach",
+  "name": "Bongertbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-f36o6aem2d"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.405766,
+   47.174754,
+   9.417346,
+   47.177384
+  ]
+ },
+ {
+  "key": "bongertbaechli",
+  "name": "Bongertbächli",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-gw1i2zu0ft"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.42585,
+   47.207031,
+   9.434468,
+   47.207767
+  ]
+ },
+ {
+  "key": "boeschengiessen",
+  "name": "Böschengiessen",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-t5svdb4ht5",
+   "jugend-3yczz3mdew"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.490101,
+   47.109969,
+   9.50288,
+   47.143841
+  ]
+ },
+ {
+  "key": "boeschni-steinig-furt",
+  "name": "Böschni Steinig Furt",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-i79w5r1p9w",
+   "aktive-48el25kp63",
+   "aktive-4k9swmucnk",
+   "aktive-27nkoxqy2ql",
+   "jugend-16dz6pkoodw"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.50197,
+   47.125643,
+   9.5058649,
+   47.132276
+  ]
+ },
+ {
+  "key": "breitlaeuibach",
+  "name": "Breitläuibach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-wt9n20fx"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.454621,
+   47.249079,
+   9.475246,
+   47.253194
+  ]
+ },
+ {
+  "key": "bruggbach",
+  "name": "Bruggbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-9zr5b4g4qp",
+   "aktive-1woen2adgw4"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.400081,
+   47.185705,
+   9.408239,
+   47.19496
+  ]
+ },
+ {
+  "key": "buchser-giessen",
+  "name": "Buchser Giessen",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-24ydar1n1mw",
+   "aktive-1u4keyhdkgx",
+   "aktive-65tdbel08r",
+   "aktive-qysuwxm9ei",
+   "aktive-bh97fnt1ws",
+   "jugend-5fhu5bftar",
+   "jugend-1z4lxucdxx3",
+   "jugend-2f2jsgcssx0",
+   "jugend-sdrm5ynvbb"
+  ],
+  "layerKinds": [
+   "baits_all",
+   "baits_no_spinner",
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.470919,
+   47.153177,
+   9.481141,
+   47.193888
+  ]
+ },
+ {
+  "key": "burgerauergiessen",
+  "name": "Burgerauergiessen",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-1u0gvr3slwr"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.48095,
+   47.14686,
+   9.489065,
+   47.153177
+  ]
+ },
+ {
+  "key": "chaltenbach",
+  "name": "Chaltenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-2bgxislr2tu"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.395327,
+   47.184086,
+   9.403089,
+   47.18879
+  ]
+ },
+ {
+  "key": "chalthusbach",
+  "name": "Chalthusbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-1ycx088yhhe"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.394095,
+   47.169117,
+   9.398484,
+   47.172066
+  ]
+ },
+ {
+  "key": "chelenbach",
+  "name": "Chelenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   260
+  ],
+  "sectionIds": [
+   "aktive-141oibdc2ck",
+   "aktive-1pz7l02940q",
+   "aktive-110yfhoqe10",
+   "aktive-1bpslgy1ivc"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.469745,
+   47.251697,
+   9.500259,
+   47.265887
+  ]
+ },
+ {
+  "key": "chretzibach",
+  "name": "Chretzibach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-1rlyqdy8m6l"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.418304,
+   47.201204,
+   9.43462,
+   47.206799
+  ]
+ },
+ {
+  "key": "chruezbergtobel",
+  "name": "Chrüzbergtobel",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-148prghashf"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.419462,
+   47.169063,
+   9.420451,
+   47.172823
+  ]
+ },
+ {
+  "key": "dorfbach",
+  "name": "Dorfbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   252
+  ],
+  "sectionIds": [
+   "aktive-zabjm8tfm3",
+   "jugend-1lt6e7owh5m"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.442498,
+   47.199577,
+   9.448494,
+   47.203628
+  ]
+ },
+ {
+  "key": "dreinamenbach",
+  "name": "Dreinamenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-1oxfcngs714",
+   "aktive-23xtpb29xxn",
+   "aktive-1byk4qqnn96",
+   "aktive-qyg48s4r30",
+   "aktive-1yfm5o3f94j"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.405586,
+   47.20422,
+   9.441053,
+   47.214079
+  ]
+ },
+ {
+  "key": "duerrenbach",
+  "name": "Dürrenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-184sfczt8rw"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.464281,
+   47.122894,
+   9.474679,
+   47.12435
+  ]
+ },
+ {
+  "key": "egelsee",
+  "name": "Egelsee",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-2achuwwlr7m",
+   "jugend-829e53hiww"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.494204,
+   47.250586,
+   9.494698,
+   47.250798
+  ]
+ },
+ {
+  "key": "eggbach",
+  "name": "Eggbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-1w9o6r8x1w7"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.410937,
+   47.180093,
+   9.424989,
+   47.181826
+  ]
+ },
+ {
+  "key": "eisenbahnbaechli",
+  "name": "Eisenbahnbächli",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-23hzvf7odgw",
+   "aktive-14hidnq414a",
+   "aktive-1kdtxkc4apn",
+   "jugend-yfo6z7mxwr",
+   "jugend-if8b8v3z6n",
+   "jugend-19n63vwraf3"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.494166,
+   47.250101,
+   9.513913,
+   47.260183
+  ]
+ },
+ {
+  "key": "entwaesserungskanal",
+  "name": "Entwässerungskanal",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-1uzyh9moisy",
+   "jugend-22yp4zlj6d6"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.442344,
+   47.221485,
+   9.485511,
+   47.229835
+  ]
+ },
+ {
+  "key": "erbserenbach",
+  "name": "Erbserenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-7xkn8cunvk",
+   "aktive-trnwiw5kfr",
+   "aktive-1xkuywz65wk",
+   "aktive-uxul1w17ya"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.43699,
+   47.145561,
+   9.452245,
+   47.14822
+  ]
+ },
+ {
+  "key": "ew-weiher",
+  "name": "EW Weiher",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-1quyqz7fdrd"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.445316,
+   47.147534,
+   9.445961,
+   47.148495
+  ]
+ },
+ {
+  "key": "fabrikkanal",
+  "name": "Fabrikkanal",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-28hojhbory7",
+   "jugend-i0bko35dvj"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.50432,
+   47.258916,
+   9.51029,
+   47.260061
+  ]
+ },
+ {
+  "key": "farbbach",
+  "name": "Farbbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   190,
+   280
+  ],
+  "sectionIds": [
+   "aktive-wy48p8lj7k",
+   "aktive-13ijtdsb1xj",
+   "aktive-l1q1bf9qya",
+   "aktive-1ase3alkiky",
+   "aktive-1brz9cy2t7g",
+   "aktive-bfiu2ynktd",
+   "jugend-25jtfwh5cy5",
+   "jugend-1oc6lk346j5"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.429433,
+   47.167542,
+   9.466008,
+   47.233409
+  ]
+ },
+ {
+  "key": "felsbach",
+  "name": "Felsbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   270
+  ],
+  "sectionIds": [
+   "aktive-1ae5s94sn40",
+   "aktive-qzd6evhefx",
+   "aktive-1chweyaa53u",
+   "aktive-1z1yva033j6",
+   "aktive-10s630kl0fr",
+   "aktive-14b05ec642b",
+   "aktive-2bztddewkg5"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.397926,
+   47.213169,
+   9.437131,
+   47.221703
+  ]
+ },
+ {
+  "key": "foesera-rinne",
+  "name": "Fösera Rinne",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-1vapm08avvd",
+   "jugend-179x8od87un"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.497886,
+   47.141622,
+   9.502717,
+   47.144682
+  ]
+ },
+ {
+  "key": "fuchsbrunnen",
+  "name": "Fuchsbrunnen",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-9bxiewhmtp",
+   "jugend-1wpj58irrj6"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.475246,
+   47.233475,
+   9.486967,
+   47.249079
+  ]
+ },
+ {
+  "key": "fuchser-weiher",
+  "name": "Fuchser Weiher",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   172
+  ],
+  "sectionIds": [
+   "aktive-53cj1eble8"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.462473,
+   47.113738,
+   9.462974,
+   47.114377
+  ]
+ },
+ {
+  "key": "ganalinbach",
+  "name": "Ganalinbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-53mcy38cre"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.387364,
+   47.171136,
+   9.391911,
+   47.172221
+  ]
+ },
+ {
+  "key": "gasenzenbach",
+  "name": "Gasenzenbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   270
+  ],
+  "sectionIds": [
+   "aktive-29s70sv11bb",
+   "aktive-1lo9ln2m2gy",
+   "aktive-2e5mvmheggj",
+   "aktive-tz49w7so8d",
+   "aktive-2692tv662st",
+   "aktive-ico4s6tbo1",
+   "jugend-offtqbb5no",
+   "jugend-w0it7a7yax",
+   "jugend-92pawhqoro",
+   "jugend-2bk9oh3b21g"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.406555,
+   47.212919,
+   9.489187,
+   47.228252
+  ]
+ },
+ {
+  "key": "gaestelenbach",
+  "name": "Gästelenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   190
+  ],
+  "sectionIds": [
+   "aktive-oz4fzz8lbw",
+   "aktive-mozlrf23ve"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.433471,
+   47.159605,
+   9.443484,
+   47.165946
+  ]
+ },
+ {
+  "key": "geissbach",
+  "name": "Geissbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-fhx3octsqo",
+   "aktive-16ppet6vk73",
+   "aktive-8q6kav6ddn",
+   "aktive-17m3nk815k6",
+   "aktive-1b5xgbwcqiv",
+   "aktive-1y1u6il6idr",
+   "aktive-b2g0gjohup",
+   "aktive-1624vojce9b"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.413754,
+   47.138818,
+   9.445525,
+   47.144296
+  ]
+ },
+ {
+  "key": "giessen",
+  "name": "Giessen",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-2c7drxgh9cm",
+   "jugend-1f5hfht8lkc"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.508936,
+   47.237632,
+   9.512762,
+   47.238311
+  ]
+ },
+ {
+  "key": "glathbach",
+  "name": "Glathbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-enzodt7mc0"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.474246,
+   47.125808,
+   9.478304,
+   47.126218
+  ]
+ },
+ {
+  "key": "glatweiher",
+  "name": "Glatweiher",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-rwd5w43ibe"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.477933,
+   47.125566,
+   9.478636,
+   47.12605
+  ]
+ },
+ {
+  "key": "gloggerbach",
+  "name": "Gloggerbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-16jdn7luhsf"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.456036,
+   47.25032,
+   9.461984,
+   47.255589
+  ]
+ },
+ {
+  "key": "gnapfbach",
+  "name": "Gnapfbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-1752h2m79zt"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.462488,
+   47.123502,
+   9.464281,
+   47.123826
+  ]
+ },
+ {
+  "key": "gogenbach",
+  "name": "Gogenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-q47dy5mvci"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.413544,
+   47.173731,
+   9.421691,
+   47.175016
+  ]
+ },
+ {
+  "key": "graben",
+  "name": "Graben",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-2gnb1sumaez",
+   "jugend-1dcyoz0sk9q"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.458922,
+   47.185467,
+   9.469532,
+   47.189946
+  ]
+ },
+ {
+  "key": "grabserbach",
+  "name": "Grabserbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-a5gb30whgy",
+   "aktive-udebpjqej1",
+   "aktive-ndn28x7lhm",
+   "jugend-16r2xfnoydz",
+   "jugend-1cxg1pxg6ff",
+   "jugend-1ezkipmopmj",
+   "jugend-1gktaqco167"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.436271,
+   47.180017,
+   9.476672,
+   47.194443
+  ]
+ },
+ {
+  "key": "grosstudenbach",
+  "name": "Grosstudenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   210
+  ],
+  "sectionIds": [
+   "aktive-j8sbguanlu"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.434043,
+   47.172395,
+   9.446276,
+   47.177043
+  ]
+ },
+ {
+  "key": "haagerkompromiss",
+  "name": "Haagerkompromiss",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-7ymbsotl10",
+   "jugend-1omj7mpzs84"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.495356,
+   47.214244,
+   9.497562,
+   47.228306
+  ]
+ },
+ {
+  "key": "haldenbaechli",
+  "name": "Haldenbächli",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-1qa1cc0umxz",
+   "jugend-4t2gu77a5"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.457625,
+   47.241876,
+   9.4675211,
+   47.243689
+  ]
+ },
+ {
+  "key": "hardeggbaechli",
+  "name": "Hardeggbächli",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-19s8ejtnvba"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.420977,
+   47.204888,
+   9.435266,
+   47.208502
+  ]
+ },
+ {
+  "key": "haselbach",
+  "name": "Haselbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-1rynmzrwaot",
+   "aktive-zbpmbdc3a0"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.459775,
+   47.121768,
+   9.464281,
+   47.123502
+  ]
+ },
+ {
+  "key": "heldbach",
+  "name": "Heldbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-2clurr6tdgl",
+   "aktive-wz7j1g1hol"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.453757,
+   47.120471,
+   9.469808,
+   47.121472
+  ]
+ },
+ {
+  "key": "hermanntobel",
+  "name": "Hermanntobel",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-17vjnm8shc7"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.425777,
+   47.170274,
+   9.426323,
+   47.174252
+  ]
+ },
+ {
+  "key": "hinterer-muntlerentschbach",
+  "name": "Hinterer Muntlerentschbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-145r7zsyo8p",
+   "aktive-q32s9j5n0c"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.395498,
+   47.17323,
+   9.413544,
+   47.175897
+  ]
+ },
+ {
+  "key": "huebbach",
+  "name": "Huebbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-1ox374mde84",
+   "aktive-1rfbvxsxfh6",
+   "jugend-24buhn4cal2",
+   "jugend-26s8fmff8f0"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.452119,
+   47.2301906,
+   9.481644,
+   47.239208
+  ]
+ },
+ {
+  "key": "ilsbaechli",
+  "name": "Ilsbächli",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-2cc2wwsrpcj"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.42622,
+   47.176817,
+   9.431381,
+   47.177214
+  ]
+ },
+ {
+  "key": "islabellbach",
+  "name": "Islabellbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-1megcx6z76g",
+   "jugend-lagdcyt0pj"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.499058,
+   47.115848,
+   9.502665,
+   47.119407
+  ]
+ },
+ {
+  "key": "ivelspusbach",
+  "name": "Ivelspusbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   210
+  ],
+  "sectionIds": [
+   "aktive-4dcszrg9p0",
+   "aktive-psrqsnwez9",
+   "aktive-sta6cmcp74",
+   "aktive-2d1gfwuxe2e",
+   "aktive-1960qoblso1",
+   "aktive-19598qomu4q"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.418783,
+   47.155232,
+   9.434447,
+   47.164308
+  ]
+ },
+ {
+  "key": "kiesfang-gasenzenbach",
+  "name": "Kiesfang Gasenzenbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   270
+  ],
+  "sectionIds": [
+   "aktive-i5btsmeh4c",
+   "jugend-5xip6d0877"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.455054,
+   47.216449,
+   9.456444,
+   47.217005
+  ]
+ },
+ {
+  "key": "kiesfang-grabser-bach-hasenbuent",
+  "name": "Kiesfang Grabser Bach (Hasenbünt)",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-4wcchu1611",
+   "jugend-15h5hhtly7u"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.446885,
+   47.183821,
+   9.448453,
+   47.184439
+  ]
+ },
+ {
+  "key": "kiesfang-muehlbach",
+  "name": "Kiesfang Mühlbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-o6gqur5x4o",
+   "jugend-khcx7xzwwg"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.464096,
+   47.229795,
+   9.465246,
+   47.230201
+  ]
+ },
+ {
+  "key": "kiesfang-rofisbach",
+  "name": "Kiesfang Rofisbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-22bk48kw3p0",
+   "jugend-1v78xyavk8p"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.45958,
+   47.227642,
+   9.460906,
+   47.228168
+  ]
+ },
+ {
+  "key": "kiesfang-roellbach",
+  "name": "Kiesfang Röllbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-1eyl2okuik9"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.471979,
+   47.151003,
+   9.472273,
+   47.151334
+  ]
+ },
+ {
+  "key": "kiesfang-steinenbach",
+  "name": "Kiesfang Steinenbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   260
+  ],
+  "sectionIds": [
+   "aktive-k88eq0fq1i",
+   "jugend-1knxa8vc200"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.502706,
+   47.256614,
+   9.504034,
+   47.257352
+  ]
+ },
+ {
+  "key": "kiesfang-tobelbach",
+  "name": "Kiesfang Tobelbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-17i209xoxqn",
+   "jugend-1a8db7091r2"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.476059,
+   47.160838,
+   9.477256,
+   47.161421
+  ]
+ },
+ {
+  "key": "kiesfang-wislen",
+  "name": "Kiesfang Wislen",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-yq8ox2wmun",
+   "jugend-1u5f0ldirl"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.467512,
+   47.242723,
+   9.467834,
+   47.242889
+  ]
+ },
+ {
+  "key": "kiesfang-zielbach",
+  "name": "Kiesfang Zielbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   270
+  ],
+  "sectionIds": [
+   "aktive-18j285327x1",
+   "jugend-7f5i39hlio"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.451277,
+   47.21787,
+   9.451851,
+   47.218077
+  ]
+ },
+ {
+  "key": "kobelbach",
+  "name": "Kobelbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   260,
+   280
+  ],
+  "sectionIds": [
+   "aktive-1ibphryy2jp",
+   "aktive-2cw55k9wowo"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.460558,
+   47.250223,
+   9.495544,
+   47.260152
+  ]
+ },
+ {
+  "key": "laerenbach",
+  "name": "Lärenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   210
+  ],
+  "sectionIds": [
+   "aktive-1lhzml39j0e"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.430682,
+   47.159432,
+   9.431584,
+   47.163004
+  ]
+ },
+ {
+  "key": "laeuibach",
+  "name": "Läuibach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   210,
+   270
+  ],
+  "sectionIds": [
+   "aktive-aiy7sexlmd",
+   "aktive-1kd3vnnzxla",
+   "aktive-ynsfg07xmw",
+   "aktive-xyx4t9air8",
+   "aktive-ap9f9zbwtf",
+   "aktive-1a8vtepr8fd"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.414393,
+   47.157154,
+   9.428865,
+   47.228102
+  ]
+ },
+ {
+  "key": "lehnbach",
+  "name": "Lehnbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-16ql9dqmfoj",
+   "aktive-1hsd7nsj2eh"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.397201,
+   47.179883,
+   9.432142,
+   47.185219
+  ]
+ },
+ {
+  "key": "limserbach",
+  "name": "Limserbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   190
+  ],
+  "sectionIds": [
+   "aktive-irvsl0oy4g",
+   "aktive-2030y2pp5zy",
+   "jugend-22erkqetlsc",
+   "jugend-2dxoy42wb8z"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.455584,
+   47.171973,
+   9.465972,
+   47.174967
+  ]
+ },
+ {
+  "key": "littenbaechli",
+  "name": "Littenbächli",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-jz08i9w60u"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.466882,
+   47.119769,
+   9.469808,
+   47.120835
+  ]
+ },
+ {
+  "key": "lobergraben",
+  "name": "Lobergraben",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-8kw037e0h4",
+   "jugend-vkjbqw7y1l"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.449645,
+   47.188273,
+   9.462596,
+   47.189107
+  ]
+ },
+ {
+  "key": "loechlibach",
+  "name": "Löchlibach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-2flrktwtclr",
+   "aktive-12t9odz7fnj",
+   "aktive-1b7opdrmybu"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.450684,
+   47.11744,
+   9.469024,
+   47.154784
+  ]
+ },
+ {
+  "key": "loggner-weiher",
+  "name": "Loggner Weiher",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   190
+  ],
+  "sectionIds": [
+   "aktive-1i1ghhmbtol",
+   "jugend-1zp4n9dygwa"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.459672,
+   47.17164,
+   9.460079,
+   47.171973
+  ]
+ },
+ {
+  "key": "loggnerbach",
+  "name": "Loggnerbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   181,
+   190
+  ],
+  "sectionIds": [
+   "aktive-10d7uvon3i6",
+   "aktive-15cxrx5y621",
+   "aktive-13vb9qnp0m2",
+   "aktive-2487v2vvsub",
+   "aktive-c5un71zfp2",
+   "aktive-2bk9rx8so6",
+   "aktive-xrqv1b77r9",
+   "jugend-1senegzajht"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.431938,
+   47.137478,
+   9.461822,
+   47.17164
+  ]
+ },
+ {
+  "key": "lognerbach",
+  "name": "Lognerbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-1o0qcatl12t"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.461822,
+   47.135683,
+   9.4691,
+   47.146975
+  ]
+ },
+ {
+  "key": "martinstoebelibach",
+  "name": "Martinstöbelibach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-13pvpufypvu"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.442671,
+   47.129879,
+   9.452425,
+   47.136222
+  ]
+ },
+ {
+  "key": "masorabach",
+  "name": "Masorabach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-25f083y5z92"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.444783,
+   47.132827,
+   9.449042,
+   47.134226
+  ]
+ },
+ {
+  "key": "moosbach",
+  "name": "Moosbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-meitxdukwk",
+   "aktive-26k8qiq2maf"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.436334,
+   47.149237,
+   9.452668,
+   47.15416
+  ]
+ },
+ {
+  "key": "moeoeslibach",
+  "name": "Mööslibach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   251,
+   252
+  ],
+  "sectionIds": [
+   "aktive-16dkd0ucm2i",
+   "aktive-3nngk85njl",
+   "jugend-5r2qkqbewm",
+   "jugend-1hnbaiqm0ud"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.43462,
+   47.199256,
+   9.447194,
+   47.201723
+  ]
+ },
+ {
+  "key": "muehlbach",
+  "name": "Mühlbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   260,
+   280
+  ],
+  "sectionIds": [
+   "aktive-emo06letoe",
+   "aktive-10qqmhdvz7q",
+   "aktive-1gb7qjk3ylv",
+   "jugend-139qqo2dflb",
+   "jugend-24tbhcnp9kz"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.437374,
+   47.229774,
+   9.509018,
+   47.260802
+  ]
+ },
+ {
+  "key": "muserbaechli",
+  "name": "Muserbächli",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-167kdlxukpp"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.450876,
+   47.128623,
+   9.462148,
+   47.137004
+  ]
+ },
+ {
+  "key": "nellenbach",
+  "name": "Nellenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-19flsxwf8vq"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.433757,
+   47.234252,
+   9.437288,
+   47.235877
+  ]
+ },
+ {
+  "key": "nesslabruennelibach",
+  "name": "Nesslabrünnelibach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-e3xdjcy76i"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.451001,
+   47.123602,
+   9.466379,
+   47.12626
+  ]
+ },
+ {
+  "key": "nesslenbach",
+  "name": "Nesslenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-1cqd9u7lvcb",
+   "aktive-1fz2l6i1s4k",
+   "aktive-7ixt0z1x9x",
+   "aktive-pks0s8rnm",
+   "aktive-2agqas8jsk7",
+   "aktive-268biq9eg1l",
+   "aktive-20e9zbdkrlk"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.432397,
+   47.232672,
+   9.451434,
+   47.236512
+  ]
+ },
+ {
+  "key": "obere-talsperre",
+  "name": "Obere Talsperre",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   171
+  ],
+  "sectionIds": [
+   "aktive-1xdvp79p4et"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.476848,
+   47.114939,
+   9.4774,
+   47.115282
+  ]
+ },
+ {
+  "key": "oberer-simmi-weiher",
+  "name": "Oberer Simmi Weiher",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-2evnolhdnvd"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.428369,
+   47.192769,
+   9.429383,
+   47.193702
+  ]
+ },
+ {
+  "key": "probstweiher",
+  "name": "Probstweiher",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-vmf1d2cxrn",
+   "jugend-26pft01d7vp"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.492931,
+   47.125669,
+   9.493352,
+   47.126151
+  ]
+ },
+ {
+  "key": "puelsbach-grenzgraben",
+  "name": "Pülsbach / Grenzgraben",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-j1q38kq8kz",
+   "jugend-13e5q63lhao"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.452022,
+   47.189566,
+   9.467912,
+   47.197098
+  ]
+ },
+ {
+  "key": "ransbach",
+  "name": "Ransbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-1fv8533xy2o"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.477019,
+   47.13083,
+   9.483654,
+   47.141019
+  ]
+ },
+ {
+  "key": "rheintaler-binnenkanal",
+  "name": "Rheintaler Binnenkanal",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   260
+  ],
+  "sectionIds": [
+   "aktive-1jmi29ml5o3",
+   "aktive-bin4tq9v1k",
+   "jugend-8ceu0d5477",
+   "jugend-22haid7zl8h",
+   "jugend-1vxprrw28f6"
+  ],
+  "layerKinds": [
+   "baits_all",
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.490169,
+   47.251678,
+   9.521181,
+   47.26838
+  ]
+ },
+ {
+  "key": "rieterenbach",
+  "name": "Rieterenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-21smktw8nns",
+   "aktive-1emc0cj03uw",
+   "aktive-1806b69jze6"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.395768,
+   47.180196,
+   9.415669,
+   47.183984
+  ]
+ },
+ {
+  "key": "rinne",
+  "name": "Rinne",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   190,
+   252,
+   270
+  ],
+  "sectionIds": [
+   "aktive-1frk6mfj0nh",
+   "aktive-1bhtaxoj9zo",
+   "aktive-20rh7yw4c98",
+   "aktive-krjieal82z",
+   "aktive-od3d2ghg3v",
+   "aktive-gb7h45vx2g",
+   "aktive-2ftsm51iuf2",
+   "aktive-24liyfji8fv",
+   "aktive-5a4t4mm232",
+   "aktive-24vg2co5m73",
+   "jugend-1k22o7dpl7u",
+   "jugend-1mka2qjrzy5",
+   "jugend-1kxcr1830tt",
+   "jugend-160dxonsk5f",
+   "jugend-1k17ox3ecgv",
+   "jugend-g0t95h4ycp",
+   "jugend-2jvfus2r0k",
+   "jugend-271w4lpmpe6"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.447426,
+   47.178393,
+   9.483908,
+   47.22165
+  ]
+ },
+ {
+  "key": "ritterenbach",
+  "name": "Ritterenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-1w7zgmsu4rj"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.401082,
+   47.181478,
+   9.403084,
+   47.182179
+  ]
+ },
+ {
+  "key": "rofisbach",
+  "name": "Rofisbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-15k81x048ia",
+   "aktive-1moi11g4vte",
+   "aktive-21tgwm2u36q",
+   "aktive-qa9afpdb3m",
+   "aktive-q6k2xb75xx",
+   "aktive-10gct2lxv4n",
+   "aktive-1rsdd39up9r",
+   "aktive-1lrvzehnzck",
+   "aktive-1olyn6irwu8",
+   "aktive-dm8l9ytetk",
+   "aktive-1op63lmr7uf",
+   "aktive-1bbydym7nt3",
+   "aktive-c0dxam6aqg",
+   "aktive-93dijt3l0",
+   "aktive-26dziv624n3",
+   "jugend-1g6qpxqtse0",
+   "jugend-1xcotu4x443"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.415002,
+   47.225799,
+   9.467547,
+   47.233685
+  ]
+ },
+ {
+  "key": "rogghalbtobel",
+  "name": "Rogghalbtobel",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-4hp6otp5p3"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.413522,
+   47.1689,
+   9.415943,
+   47.172597
+  ]
+ },
+ {
+  "key": "rogghalmtobel",
+  "name": "Rogghalmtobel",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-y763lprasr"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.414521,
+   47.166337,
+   9.4156,
+   47.170221
+  ]
+ },
+ {
+  "key": "rogghalmweiher",
+  "name": "Rogghalmweiher",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-1b0uv1ifmjg"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.409016,
+   47.171294,
+   9.409518,
+   47.171624
+  ]
+ },
+ {
+  "key": "roellbach",
+  "name": "Röllbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-1lfubzo95g9",
+   "jugend-dklkfxx10r"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.448424,
+   47.133448,
+   9.479253,
+   47.159404
+  ]
+ },
+ {
+  "key": "roessbach",
+  "name": "Rössbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-1mcztnizlkq"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.4614,
+   47.145675,
+   9.465278,
+   47.146293
+  ]
+ },
+ {
+  "key": "rotenbach",
+  "name": "Rotenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-ufdaendb2k",
+   "aktive-2ab1apixnbc",
+   "aktive-27ffzp5dk77",
+   "aktive-2raxxa9vxz"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.377141,
+   47.16491,
+   9.39744,
+   47.17855
+  ]
+ },
+ {
+  "key": "ruchenschiltgraben",
+  "name": "Ruchenschiltgraben",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-1g8975k6yp3",
+   "jugend-1n79oi9bxr5"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.456948,
+   47.191132,
+   9.467467,
+   47.191577
+  ]
+ },
+ {
+  "key": "ruetibach",
+  "name": "Rütibach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-ytumpgv1f5",
+   "aktive-xqho4qe10x",
+   "aktive-27j8r97jodj",
+   "aktive-8jm5qi04vl",
+   "aktive-cux2lui653",
+   "aktive-1zkk4wsocw5"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.404504,
+   47.20031,
+   9.418548,
+   47.212673
+  ]
+ },
+ {
+  "key": "saar",
+  "name": "Saar",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-1fsqc0arkr8",
+   "jugend-1az3oqwmi91"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.457803,
+   47.115065,
+   9.48367,
+   47.153177
+  ]
+ },
+ {
+  "key": "saarkanal",
+  "name": "Saarkanal",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-1ckktr2c82a"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.459716,
+   47.115163,
+   9.460749,
+   47.115448
+  ]
+ },
+ {
+  "key": "saegebach",
+  "name": "Sägebach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-6226hzq4ya"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.469808,
+   47.120799,
+   9.473333,
+   47.122488
+  ]
+ },
+ {
+  "key": "salslittenbach",
+  "name": "Salslittenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-hfkyi04hmg",
+   "aktive-1wgun3h9uhz"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.403434,
+   47.186919,
+   9.408539,
+   47.195607
+  ]
+ },
+ {
+  "key": "sarinabaeche",
+  "name": "Sarinabäche",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-1rjomwp5uyh",
+   "aktive-2fus8ux44pr"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.446697,
+   47.130057,
+   9.449116,
+   47.131676
+  ]
+ },
+ {
+  "key": "schindlerenbach",
+  "name": "Schindlerenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   260
+  ],
+  "sectionIds": [
+   "aktive-2f6xq51glhz",
+   "aktive-10tgnqca3wh",
+   "aktive-224m5538krm",
+   "aktive-21y0453g743",
+   "aktive-20oiatm20mk",
+   "aktive-8nw0cbgmj4"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.477043,
+   47.265446,
+   9.492829,
+   47.269808
+  ]
+ },
+ {
+  "key": "schlipfbach",
+  "name": "Schlipfbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-m1k6ramwwj",
+   "aktive-1k9r48gvngg",
+   "aktive-1lt9ia9gfvv",
+   "aktive-lbajvy9hwz",
+   "aktive-29igdb4qv6n",
+   "jugend-19toq5rp1ia"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.444055,
+   47.238142,
+   9.470063,
+   47.242273
+  ]
+ },
+ {
+  "key": "schlussbach",
+  "name": "Schlussbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-1x4pwwr9nra"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.424989,
+   47.179722,
+   9.436271,
+   47.181809
+  ]
+ },
+ {
+  "key": "schmelzibach",
+  "name": "Schmelzibach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   260
+  ],
+  "sectionIds": [
+   "aktive-1va4vvt08eh",
+   "aktive-ilcee1s4b4"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.475111,
+   47.259059,
+   9.480273,
+   47.264592
+  ]
+ },
+ {
+  "key": "schutzbach",
+  "name": "Schutzbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   210
+  ],
+  "sectionIds": [
+   "aktive-j3qij4gkig"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.422834,
+   47.162722,
+   9.430319,
+   47.163513
+  ]
+ },
+ {
+  "key": "sevelerbach",
+  "name": "Sevelerbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   171
+  ],
+  "sectionIds": [
+   "aktive-5qvl4xzlfx",
+   "aktive-ryh5w8r3dj",
+   "aktive-12ob0b8uhx7",
+   "aktive-pqvb38ci2j",
+   "aktive-4a2rlikd47",
+   "jugend-18turc1v2x0",
+   "jugend-qr38h1tvcn",
+   "jugend-11sqm4l9fxk"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.435987,
+   47.107419,
+   9.4982732,
+   47.145475
+  ]
+ },
+ {
+  "key": "simmi-berg",
+  "name": "Simmi Berg",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-1b70sb0q1ps",
+   "aktive-849pzbjsyz",
+   "aktive-1605bjl9z11"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.405536,
+   47.189058,
+   9.443977,
+   47.198752
+  ]
+ },
+ {
+  "key": "simmi-tal",
+  "name": "Simmi Tal",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   252
+  ],
+  "sectionIds": [
+   "aktive-1xhcbr51qi9",
+   "aktive-1j7yk1a5ksv",
+   "aktive-g1znftkrxi",
+   "aktive-1p3gsd2daxn",
+   "jugend-1h7cens4tbi",
+   "jugend-1ey4uyh3yw7"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.443914,
+   47.198734,
+   9.486837,
+   47.214497
+  ]
+ },
+ {
+  "key": "steinenbach",
+  "name": "Steinenbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   260
+  ],
+  "sectionIds": [
+   "aktive-1ke4g5h01eu",
+   "aktive-2e2hxhonqzr",
+   "aktive-1hhw8rtik7v",
+   "aktive-22eoj55myb5",
+   "aktive-20vosordy0w",
+   "aktive-qrcjc81sat",
+   "jugend-1g5v33rgawm",
+   "jugend-24im3h3tpyb"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.47959,
+   47.256406,
+   9.504644,
+   47.275952
+  ]
+ },
+ {
+  "key": "stoggenbach",
+  "name": "Stoggenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181,
+   230
+  ],
+  "sectionIds": [
+   "aktive-9bwufe8tu3",
+   "aktive-1zvwd3icwh4",
+   "aktive-lr74rumdaf"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.430661,
+   47.113971,
+   9.463208,
+   47.191214
+  ]
+ },
+ {
+  "key": "studener-bach-weiher",
+  "name": "Studener Bach Weiher",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   210
+  ],
+  "sectionIds": [
+   "aktive-vrr9pk9wg9"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.445823,
+   47.175916,
+   9.446468,
+   47.176469
+  ]
+ },
+ {
+  "key": "studnerbach",
+  "name": "Studnerbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   210
+  ],
+  "sectionIds": [
+   "aktive-e4be8cd1g6",
+   "aktive-1e2e7z2gyun",
+   "jugend-1pstre31jtf"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.434211,
+   47.162992,
+   9.470919,
+   47.182242
+  ]
+ },
+ {
+  "key": "stutztobel",
+  "name": "Stutztobel",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-1jjqejoz3bo"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.410231,
+   47.169765,
+   9.411841,
+   47.171907
+  ]
+ },
+ {
+  "key": "suweidbach",
+  "name": "Suweidbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   270
+  ],
+  "sectionIds": [
+   "aktive-bg4hqmsvaw",
+   "aktive-2cougwbvyzl",
+   "aktive-dx6287dt4h",
+   "aktive-v82195bya3"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.412239,
+   47.217488,
+   9.428513,
+   47.219593
+  ]
+ },
+ {
+  "key": "tobelbach",
+  "name": "Tobelbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   181,
+   280
+  ],
+  "sectionIds": [
+   "aktive-1fasrnn8l29",
+   "aktive-132ujqudj6p",
+   "aktive-29gfivu8p3m",
+   "aktive-jrqpg067pr",
+   "aktive-mobuqy331j",
+   "aktive-t6b8ppi3lt",
+   "aktive-1mvmdqyj2pj",
+   "aktive-2503dbkfhbb",
+   "aktive-ocfyld8fpw",
+   "aktive-ivrr20pnv8",
+   "aktive-ynqd14bv62",
+   "aktive-bnsqe0hdqk",
+   "aktive-qgck52pl33",
+   "aktive-noogcdwdy0",
+   "aktive-1yxj9xbdkpp",
+   "aktive-20d6oh7wsla",
+   "aktive-y8hnhan36z",
+   "aktive-1jrzcratiow",
+   "aktive-2cwbugn9djx",
+   "aktive-jjzo7ikd1y",
+   "aktive-1y6fofllq90",
+   "aktive-7z1b9xiwjn",
+   "aktive-1lqio5qsqzs",
+   "aktive-el23jmbofr",
+   "jugend-w50c6awq9w",
+   "jugend-1mq15zg3hks"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.414596,
+   47.119778,
+   9.478073,
+   47.258429
+  ]
+ },
+ {
+  "key": "tschilsbach",
+  "name": "Tschilsbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-2576avijdc3",
+   "aktive-8aspjct69o"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.414554,
+   47.1883,
+   9.423295,
+   47.194225
+  ]
+ },
+ {
+  "key": "tuerichnerbaechli-steigbaechli",
+  "name": "Tuerichnerbächli/Steigbächli",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   181
+  ],
+  "sectionIds": [
+   "aktive-15ujpai3oz3"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.464546,
+   47.125383,
+   9.474246,
+   47.131531
+  ]
+ },
+ {
+  "key": "unterer-simmi-weiher",
+  "name": "Unterer Simmi Weiher",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   252
+  ],
+  "sectionIds": [
+   "aktive-1k5q65wmpqc",
+   "jugend-nvruu4bzza"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.445792,
+   47.199228,
+   9.448477,
+   47.199701
+  ]
+ },
+ {
+  "key": "vilierbaechli",
+  "name": "Vilierbächli",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-mi6ik73cn2"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.412595,
+   47.187996,
+   9.421349,
+   47.192055
+  ]
+ },
+ {
+  "key": "voralpsee",
+  "name": "Voralpsee",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   220
+  ],
+  "sectionIds": [
+   "aktive-1vse6djtrzm",
+   "jugend-2ah5mdkzl8z"
+  ],
+  "layerKinds": [
+   "voralpsee"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.372576,
+   47.153822,
+   9.379962,
+   47.158742
+  ]
+ },
+ {
+  "key": "vorderer-muntlerentschbach",
+  "name": "Vorderer Muntlerentschbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-1k2z793orv8"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.406753,
+   47.174478,
+   9.413544,
+   47.175411
+  ]
+ },
+ {
+  "key": "walchenbach",
+  "name": "Walchenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230,
+   270
+  ],
+  "sectionIds": [
+   "aktive-s5don3ta9j",
+   "aktive-1ld6x3ebeni",
+   "aktive-27u2vx2pm2g",
+   "aktive-1rnf6ydjvwz",
+   "aktive-1avcuq4gexn",
+   "aktive-1dbg0k8am6s",
+   "aktive-j06lzupnc3",
+   "aktive-tv2c52svlc",
+   "aktive-1fiealkunog",
+   "aktive-1yuc686c876",
+   "aktive-8pzdhvh59t",
+   "aktive-16600cw8ut4",
+   "aktive-2ck9gvfmg48",
+   "aktive-1jr158rxaux"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.380142,
+   47.168822,
+   9.446745,
+   47.224934
+  ]
+ },
+ {
+  "key": "wasserfassung-steinenbach",
+  "name": "Wasserfassung Steinenbach",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   260
+  ],
+  "sectionIds": [
+   "aktive-2882lmc7hz"
+  ],
+  "layerKinds": [
+   "gravel_trap_river"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.495939,
+   47.260434,
+   9.496751,
+   47.261017
+  ]
+ },
+ {
+  "key": "weibelaggerbaechli",
+  "name": "Weibelaggerbächli",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-m6mgzvc0ai",
+   "aktive-puykikqea7"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.41536,
+   47.177852,
+   9.43222,
+   47.179754
+  ]
+ },
+ {
+  "key": "weidbach-rinne",
+  "name": "Weidbach Rinne",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-1krl7766rf6",
+   "jugend-1yigzbwb4a4"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.502812,
+   47.125972,
+   9.503401,
+   47.127954
+  ]
+ },
+ {
+  "key": "weierbaechli",
+  "name": "Weierbächli",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   300
+  ],
+  "sectionIds": [
+   "aktive-23dd6u0kuyz",
+   "jugend-18wqogxca1p"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.494782,
+   47.238946,
+   9.512567,
+   47.242804
+  ]
+ },
+ {
+  "key": "werdenbaechli",
+  "name": "Werdenbächli",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   251
+  ],
+  "sectionIds": [
+   "aktive-26j7awj2xcp"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.40975,
+   47.189147,
+   9.413726,
+   47.194994
+  ]
+ },
+ {
+  "key": "werdenberger-binnenkanal",
+  "name": "Werdenberger Binnenkanal",
+  "groups": [
+   "aktive",
+   "jugend",
+   "tageskarte"
+  ],
+  "codes": [
+   151,
+   152,
+   153
+  ],
+  "sectionIds": [
+   "aktive-zloan1cdm6",
+   "aktive-1vzic00i70x",
+   "aktive-2g53v95sc24",
+   "aktive-26sswa2zf09",
+   "aktive-1tdrxieb19a",
+   "aktive-h6sp583o2b",
+   "aktive-1g4repi636p",
+   "aktive-28r8nhaeshn",
+   "jugend-1bv844ilq6r",
+   "jugend-26ct6vbtupc",
+   "jugend-1x8q9bzd3p1",
+   "jugend-1s0nbuj8c1x",
+   "jugend-189iuiro52",
+   "jugend-1dif662ib6k",
+   "jugend-1gvi2ww8727",
+   "jugend-295a4w0ghnk",
+   "tageskarte-ej0tb8g23n",
+   "tageskarte-a5e5xiycpu",
+   "tageskarte-1sctnslknc8",
+   "tageskarte-21ay7jp31ei",
+   "tageskarte-ky241txene",
+   "tageskarte-ql5gl6nvif",
+   "tageskarte-1eay5v0fz2u"
+  ],
+  "layerKinds": [
+   "baits_all",
+   "artificial_only_unclear",
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.476332,
+   47.1135357,
+   9.521172,
+   47.267565
+  ]
+ },
+ {
+  "key": "werdenbergersee",
+  "name": "Werdenbergersee",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-1bl6wb604ga",
+   "jugend-1c2vuqeoujb"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.462805,
+   47.165988,
+   9.465152,
+   47.16833
+  ]
+ },
+ {
+  "key": "wetti",
+  "name": "Wetti",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   190
+  ],
+  "sectionIds": [
+   "aktive-1sy4ox603rz",
+   "aktive-ikeq2xjcf7",
+   "jugend-mv3ujvjsyu",
+   "jugend-1qiv5da3iwq"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.464039,
+   47.165659,
+   9.471271,
+   47.181156
+  ]
+ },
+ {
+  "key": "wislen",
+  "name": "Wislen",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   280
+  ],
+  "sectionIds": [
+   "aktive-2xu0dzdqnp",
+   "jugend-2b6hkloxpfd"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.467834,
+   47.232606,
+   9.491008,
+   47.24277
+  ]
+ },
+ {
+  "key": "wislenhasel-rinne",
+  "name": "Wislenhasel Rinne",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-2e17l1ewzzi",
+   "jugend-136nlmhvra4"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.504314,
+   47.113078,
+   9.506993,
+   47.122756
+  ]
+ },
+ {
+  "key": "wislenhaselbach",
+  "name": "Wislenhaselbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [],
+  "sectionIds": [
+   "aktive-xnzmm8v3h6",
+   "jugend-mk7eoizk5t"
+  ],
+  "layerKinds": [
+   "closed"
+  ],
+  "hasClosedSection": true,
+  "bbox": [
+   9.501118,
+   47.117273,
+   9.504701,
+   47.124787
+  ]
+ },
+ {
+  "key": "wurzitobel",
+  "name": "Wurzitobel",
+  "groups": [
+   "aktive"
+  ],
+  "codes": [
+   230
+  ],
+  "sectionIds": [
+   "aktive-ga6g0iqlb6"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.421365,
+   47.170384,
+   9.423862,
+   47.17361
+  ]
+ },
+ {
+  "key": "zielbach",
+  "name": "Zielbach",
+  "groups": [
+   "aktive",
+   "jugend"
+  ],
+  "codes": [
+   270
+  ],
+  "sectionIds": [
+   "aktive-16rc2z7sjn3",
+   "aktive-g9f138u7sl",
+   "aktive-13u5zo7b1bw",
+   "aktive-dv229j6fj7",
+   "aktive-1cniphjg2z2",
+   "aktive-1d4tjzv1rnu",
+   "aktive-smfine99ys",
+   "jugend-2c9yyf592qp"
+  ],
+  "layerKinds": [
+   "baits_no_spinner"
+  ],
+  "hasClosedSection": false,
+  "bbox": [
+   9.431921,
+   47.217092,
+   9.459719,
+   47.227157
+  ]
+ }
+]

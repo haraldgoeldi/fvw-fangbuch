@@ -1,0 +1,428 @@
+[
+ {
+  "group": "aktive",
+  "documentName": "Aktive Fischer 2026 Gewässerkarte",
+  "sha256": "70ddcbf308045a61cda6be0983d22551c23a6b0d31cdf16e829abb48363ae142",
+  "bytes": 759544,
+  "objects": 355,
+  "expectedObjects": 355,
+  "distinctNames": 152,
+  "expectedNames": 152,
+  "codes": [
+   151,
+   152,
+   153,
+   171,
+   172,
+   181,
+   190,
+   210,
+   220,
+   230,
+   251,
+   252,
+   260,
+   270,
+   280,
+   300
+  ],
+  "layers": [
+   {
+    "index": 0,
+    "name": "Natur- & Kunstköder, Löffel, Wobbler & Spinner",
+    "kind": "baits_all",
+    "ruleLabel": "Alle Köder erlaubt",
+    "ruleStatus": "from_source",
+    "objects": 8,
+    "expectedObjects": 8,
+    "geometry": {
+     "Point": 1,
+     "LineString": 7,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 1,
+    "name": "Natur- & Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+    "kind": "baits_no_spinner",
+    "ruleLabel": "Natur- & Kunstköder – ohne Spinner, Löffel, Wobbler, künstl. Köderfische",
+    "ruleStatus": "from_source",
+    "objects": 293,
+    "expectedObjects": 293,
+    "geometry": {
+     "Point": 0,
+     "LineString": 293,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 2,
+    "name": "Kiessämmler (gelten als Fliessgewässer)",
+    "kind": "gravel_trap_river",
+    "ruleLabel": "Kiessämmler – gilt als Fliessgewässer",
+    "ruleStatus": "from_source",
+    "objects": 17,
+    "expectedObjects": 17,
+    "geometry": {
+     "Point": 0,
+     "LineString": 0,
+     "Polygon": 17,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 3,
+    "name": "Nur Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+    "kind": "artificial_only_unclear",
+    "ruleLabel": "Nur Kunstköder – Vorstandsklärung erforderlich",
+    "ruleStatus": "needs_board",
+    "objects": 3,
+    "expectedObjects": 3,
+    "geometry": {
+     "Point": 0,
+     "LineString": 3,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 4,
+    "name": "Voralpsee",
+    "kind": "voralpsee",
+    "ruleLabel": "Voralpsee – eigene Regeln",
+    "ruleStatus": "imported_text_only",
+    "objects": 1,
+    "expectedObjects": 1,
+    "geometry": {
+     "Point": 0,
+     "LineString": 0,
+     "Polygon": 1,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 5,
+    "name": "gesperrte Gewässer",
+    "kind": "closed",
+    "ruleLabel": "Gesperrt – Fischen verboten",
+    "ruleStatus": "from_source",
+    "objects": 29,
+    "expectedObjects": 29,
+    "geometry": {
+     "Point": 0,
+     "LineString": 21,
+     "Polygon": 8,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 6,
+    "name": "Pachtgrenze",
+    "kind": "lease_boundary",
+    "ruleLabel": "Pachtgrenze",
+    "ruleStatus": "display_only",
+    "objects": 3,
+    "expectedObjects": 3,
+    "geometry": {
+     "Point": 0,
+     "LineString": 3,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 7,
+    "name": "Grenze Berg-/Talgewässer",
+    "kind": "mountain_valley_boundary",
+    "ruleLabel": "Grenze Berg-/Talgewässer",
+    "ruleStatus": "display_only",
+    "objects": 1,
+    "expectedObjects": 1,
+    "geometry": {
+     "Point": 0,
+     "LineString": 1,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 8,
+    "name": "Unbenannte Ebene",
+    "kind": "empty_unnamed",
+    "ruleLabel": "Leere, unbenannte Ebene",
+    "ruleStatus": "display_only",
+    "objects": 0,
+    "expectedObjects": null,
+    "geometry": {
+     "Point": 0,
+     "LineString": 0,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 9,
+    "name": "Unbenannte Ebene",
+    "kind": "empty_unnamed",
+    "ruleLabel": "Leere, unbenannte Ebene",
+    "ruleStatus": "display_only",
+    "objects": 0,
+    "expectedObjects": null,
+    "geometry": {
+     "Point": 0,
+     "LineString": 0,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   }
+  ],
+  "bbox": [
+   9.372576,
+   47.097482,
+   9.54327,
+   47.278707
+  ],
+  "networkLinkOnly": false
+ },
+ {
+  "group": "jugend",
+  "documentName": "Jugendfischer 2026 Gewässerkarte",
+  "sha256": "a2d9be0f2434b27453b8836abb824dcadfe4989ff446c9239b496df5e3a6a72e",
+  "bytes": 219086,
+  "objects": 110,
+  "expectedObjects": 110,
+  "distinctNames": 67,
+  "expectedNames": 67,
+  "codes": [
+   151,
+   152,
+   153,
+   171,
+   181,
+   190,
+   210,
+   220,
+   230,
+   252,
+   260,
+   270,
+   280,
+   300
+  ],
+  "layers": [
+   {
+    "index": 0,
+    "name": "Natur- & Kunstköder, Löffel, Wobbler & Spinner",
+    "kind": "baits_all",
+    "ruleLabel": "Alle Köder erlaubt",
+    "ruleStatus": "from_source",
+    "objects": 7,
+    "expectedObjects": 7,
+    "geometry": {
+     "Point": 1,
+     "LineString": 6,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 1,
+    "name": "Natur- & Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+    "kind": "baits_no_spinner",
+    "ruleLabel": "Natur- & Kunstköder – ohne Spinner, Löffel, Wobbler, künstl. Köderfische",
+    "ruleStatus": "from_source",
+    "objects": 62,
+    "expectedObjects": 62,
+    "geometry": {
+     "Point": 0,
+     "LineString": 62,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 2,
+    "name": "Kiessämmler (gelten als Fliessgewässer)",
+    "kind": "gravel_trap_river",
+    "ruleLabel": "Kiessämmler – gilt als Fliessgewässer",
+    "ruleStatus": "from_source",
+    "objects": 10,
+    "expectedObjects": 10,
+    "geometry": {
+     "Point": 0,
+     "LineString": 0,
+     "Polygon": 10,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 3,
+    "name": "Nur Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+    "kind": "artificial_only_unclear",
+    "ruleLabel": "Nur Kunstköder – Vorstandsklärung erforderlich",
+    "ruleStatus": "needs_board",
+    "objects": 3,
+    "expectedObjects": 3,
+    "geometry": {
+     "Point": 0,
+     "LineString": 3,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 4,
+    "name": "Voralpsee",
+    "kind": "voralpsee",
+    "ruleLabel": "Voralpsee – eigene Regeln",
+    "ruleStatus": "imported_text_only",
+    "objects": 1,
+    "expectedObjects": 1,
+    "geometry": {
+     "Point": 0,
+     "LineString": 0,
+     "Polygon": 1,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 5,
+    "name": "gesperrte Gewässer",
+    "kind": "closed",
+    "ruleLabel": "Gesperrt – Fischen verboten",
+    "ruleStatus": "from_source",
+    "objects": 24,
+    "expectedObjects": 24,
+    "geometry": {
+     "Point": 0,
+     "LineString": 18,
+     "Polygon": 6,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 6,
+    "name": "Pachtgrenze",
+    "kind": "lease_boundary",
+    "ruleLabel": "Pachtgrenze",
+    "ruleStatus": "display_only",
+    "objects": 2,
+    "expectedObjects": 2,
+    "geometry": {
+     "Point": 0,
+     "LineString": 2,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 7,
+    "name": "Grenze Berg-/Talgewässer",
+    "kind": "mountain_valley_boundary",
+    "ruleLabel": "Grenze Berg-/Talgewässer",
+    "ruleStatus": "display_only",
+    "objects": 1,
+    "expectedObjects": 1,
+    "geometry": {
+     "Point": 0,
+     "LineString": 1,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   }
+  ],
+  "bbox": [
+   9.372576,
+   47.097482,
+   9.54327,
+   47.27128
+  ],
+  "networkLinkOnly": false
+ },
+ {
+  "group": "tageskarte",
+  "documentName": "Gewässerkarte 2026 Tageskarte",
+  "sha256": "07205fe6be9ae5b5c05e2505ed41159f6e5dd783fc6a576887a1aa79aeec9313",
+  "bytes": 20269,
+  "objects": 10,
+  "expectedObjects": 10,
+  "distinctNames": 4,
+  "expectedNames": null,
+  "codes": [
+   151,
+   152,
+   153
+  ],
+  "layers": [
+   {
+    "index": 0,
+    "name": "Natur- & Kunstköder, Löffel, Wobbler & Spinner",
+    "kind": "baits_all",
+    "ruleLabel": "Alle Köder erlaubt",
+    "ruleStatus": "from_source",
+    "objects": 5,
+    "expectedObjects": 5,
+    "geometry": {
+     "Point": 1,
+     "LineString": 4,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 1,
+    "name": "Nur Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+    "kind": "artificial_only_unclear",
+    "ruleLabel": "Nur Kunstköder – Vorstandsklärung erforderlich",
+    "ruleStatus": "needs_board",
+    "objects": 2,
+    "expectedObjects": 2,
+    "geometry": {
+     "Point": 0,
+     "LineString": 2,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 2,
+    "name": "gesperrte Gewässer",
+    "kind": "closed",
+    "ruleLabel": "Gesperrt – Fischen verboten",
+    "ruleStatus": "from_source",
+    "objects": 1,
+    "expectedObjects": 1,
+    "geometry": {
+     "Point": 0,
+     "LineString": 1,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   },
+   {
+    "index": 3,
+    "name": "Pachtgrenze",
+    "kind": "lease_boundary",
+    "ruleLabel": "Pachtgrenze",
+    "ruleStatus": "display_only",
+    "objects": 2,
+    "expectedObjects": 2,
+    "geometry": {
+     "Point": 0,
+     "LineString": 2,
+     "Polygon": 0,
+     "GeometryCollection": 0
+    }
+   }
+  ],
+  "bbox": [
+   9.426404,
+   47.097482,
+   9.54327,
+   47.269009
+  ],
+  "networkLinkOnly": false
+ }
+]

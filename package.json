@@ -1,0 +1,12 @@
+{
+  "name": "fvw-fangbuch",
+  "private": true,
+  "description": "Fangbuch- und Patent-App Fischereiverein Werdenberg – Monorepo (App, Backend, gemeinsame Logik)",
+  "workspaces": ["packages/*", "backend", "app"],
+  "scripts": {
+    "test": "npm run test -w @fvw/shared && npm run test -w @fvw/backend",
+    "typecheck": "npm run typecheck -w @fvw/shared && npm run typecheck -w @fvw/backend",
+    "import:report": "npm run import:report -w @fvw/backend"
+  },
+  "engines": { "node": ">=22" }
+}
