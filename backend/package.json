@@ -1,0 +1,37 @@
+{
+  "name": "@fvw/backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "migrate": "tsx src/cli/migrate.ts",
+    "seed:demo": "tsx src/cli/seed-demo.ts",
+    "import:report": "tsx ../tools/import/import-report.ts",
+    "jobs:run": "tsx src/cli/run-job.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "keygen": "tsx src/cli/keygen.ts",
+    "import:maps": "tsx src/cli/import-maps.ts"
+  },
+  "dependencies": {
+    "@fvw/shared": "*",
+    "@hono/node-server": "^2.1.8",
+    "better-auth": "^1.7.25",
+    "fast-xml-parser": "^5.12.1",
+    "hono": "^4.13.18",
+    "jszip": "^3.10.2",
+    "nodemailer": "^10.5.0",
+    "pg": "^8.23.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/nodemailer": "^8.0.2",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "vitest": "^5.1.0"
+  }
+}

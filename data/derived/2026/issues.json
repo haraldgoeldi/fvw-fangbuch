@@ -1,0 +1,674 @@
+[
+ {
+  "id": "closed_in_rule_layer:aktive-1u4keyhdkgx",
+  "kind": "closed_in_rule_layer",
+  "severity": "fehler",
+  "title": "Widerspruch bei «Buchser Giessen»: Köderebene, Beschreibung «gesperrt!»",
+  "maps": [
+   "aktive"
+  ],
+  "layer": "Natur- & Kunstköder, Löffel, Wobbler & Spinner",
+  "field": "description",
+  "original": "gesperrt!",
+  "suggestion": null,
+  "occurrences": 1,
+  "sectionIds": [
+   "aktive-1u4keyhdkgx"
+  ],
+  "normalizable": false,
+  "note": "Die Ebene erlaubt das Fischen, die Beschreibung meldet eine Sperrung. Die App warnt vorsorglich und kennzeichnet den Abschnitt als widersprüchlich.",
+  "decisionRef": "O28",
+  "status": "offen"
+ },
+ {
+  "id": "closed_in_rule_layer:jugend-2f2jsgcssx0",
+  "kind": "closed_in_rule_layer",
+  "severity": "fehler",
+  "title": "Widerspruch bei «Buchser Giessen»: Köderebene, Beschreibung «gesperrt!»",
+  "maps": [
+   "jugend"
+  ],
+  "layer": "Natur- & Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "field": "description",
+  "original": "gesperrt!",
+  "suggestion": null,
+  "occurrences": 1,
+  "sectionIds": [
+   "jugend-2f2jsgcssx0"
+  ],
+  "normalizable": false,
+  "note": "Die Ebene erlaubt das Fischen, die Beschreibung meldet eine Sperrung. Die App warnt vorsorglich und kennzeichnet den Abschnitt als widersprüchlich.",
+  "decisionRef": "O28",
+  "status": "offen"
+ },
+ {
+  "id": "clubhouse_name_variant:bg5xq52u8g",
+  "kind": "clubhouse_name_variant",
+  "severity": "warnung",
+  "title": "Vereinslokal unterschiedlich benannt: «Fischerei Verein Werdenberg» / «FVW Fischerheim»",
+  "maps": [
+   "aktive"
+  ],
+  "layer": "Natur- & Kunstköder, Löffel, Wobbler & Spinner",
+  "field": "name",
+  "original": "Fischerei Verein Werdenberg",
+  "suggestion": "FVW Fischerheim",
+  "occurrences": 1,
+  "sectionIds": [
+   "aktive-k5rbzsy4on"
+  ],
+  "normalizable": true,
+  "note": "Vorschlag = häufigere Bezeichnung (2× in jugend, tageskarte). Das AD nennt beide Bezeichnungen.",
+  "status": "offen"
+ },
+ {
+  "id": "code_missing:24ilwgyuqwu",
+  "kind": "code_missing",
+  "severity": "warnung",
+  "title": "Kein Gewässercode bei «Buchser Giessen»",
+  "maps": [
+   "aktive"
+  ],
+  "layer": "Natur- & Kunstköder, Löffel, Wobbler & Spinner",
+  "field": "code",
+  "original": "gesperrt!",
+  "suggestion": null,
+  "occurrences": 1,
+  "sectionIds": [
+   "aktive-1u4keyhdkgx"
+  ],
+  "normalizable": false,
+  "note": "Abschnitt in einer Köderebene ohne Gewässercode.",
+  "status": "offen"
+ },
+ {
+  "id": "code_missing:1tmrcwhknld",
+  "kind": "code_missing",
+  "severity": "warnung",
+  "title": "Kein Gewässercode bei «Buchser Giessen»",
+  "maps": [
+   "jugend"
+  ],
+  "layer": "Natur- & Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "field": "code",
+  "original": "gesperrt!",
+  "suggestion": null,
+  "occurrences": 1,
+  "sectionIds": [
+   "jugend-2f2jsgcssx0"
+  ],
+  "normalizable": false,
+  "note": "Abschnitt in einer Köderebene ohne Gewässercode.",
+  "status": "offen"
+ },
+ {
+  "id": "name_variant_known:zx6f9x9318",
+  "kind": "name_variant_known",
+  "severity": "warnung",
+  "title": "Schreibvariante «Lognerbach» / «Loggnerbach»",
+  "maps": [
+   "aktive",
+   "jugend"
+  ],
+  "layer": null,
+  "field": "name",
+  "original": "Lognerbach",
+  "suggestion": "Loggnerbach",
+  "occurrences": 1,
+  "sectionIds": [
+   "aktive-1o0qcatl12t"
+  ],
+  "normalizable": true,
+  "note": "Im Anforderungsdokument genannt. Vorschlag = häufigere Schreibweise (8× gegenüber 1×). Codes: 181, 190. Richtige Schreibweise vom Vorstand bestätigen.",
+  "status": "offen"
+ },
+ {
+  "id": "name_variant_known:2alse8sjmi3",
+  "kind": "name_variant_known",
+  "severity": "warnung",
+  "title": "Schreibvariante «Rogghalmtobel» / «Rogghalbtobel»",
+  "maps": [
+   "aktive"
+  ],
+  "layer": null,
+  "field": "name",
+  "original": "Rogghalmtobel (1×) / Rogghalbtobel (1×)",
+  "suggestion": null,
+  "occurrences": 1,
+  "sectionIds": [
+   "aktive-y763lprasr"
+  ],
+  "normalizable": true,
+  "note": "Im Anforderungsdokument genannt. Beide Schreibweisen gleich häufig – kein Vorschlag; der Vorstand legt die richtige Schreibweise fest (Admin kann den Wert beim Bestätigen eintragen). Codes: 230.",
+  "status": "offen"
+ },
+ {
+  "id": "rule_unclear:aktive",
+  "kind": "rule_unclear",
+  "severity": "warnung",
+  "title": "Köderregel «Nur Kunstköder» unklar – Vorstandsklärung erforderlich",
+  "maps": [
+   "aktive"
+  ],
+  "layer": "Nur Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "field": "layer",
+  "original": "Nur Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "suggestion": null,
+  "occurrences": 3,
+  "sectionIds": [
+   "aktive-1tdrxieb19a",
+   "aktive-h6sp583o2b",
+   "aktive-1g4repi636p"
+  ],
+  "normalizable": false,
+  "note": "Der Titel verbietet Spinner, Löffel, Wobbler und künstliche Köderfische; welche Köder erlaubt sind, ist offen.",
+  "decisionRef": "O8",
+  "status": "offen"
+ },
+ {
+  "id": "rule_unclear:jugend",
+  "kind": "rule_unclear",
+  "severity": "warnung",
+  "title": "Köderregel «Nur Kunstköder» unklar – Vorstandsklärung erforderlich",
+  "maps": [
+   "jugend"
+  ],
+  "layer": "Nur Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "field": "layer",
+  "original": "Nur Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "suggestion": null,
+  "occurrences": 3,
+  "sectionIds": [
+   "jugend-189iuiro52",
+   "jugend-1dif662ib6k",
+   "jugend-1gvi2ww8727"
+  ],
+  "normalizable": false,
+  "note": "Der Titel verbietet Spinner, Löffel, Wobbler und künstliche Köderfische; welche Köder erlaubt sind, ist offen.",
+  "decisionRef": "O8",
+  "status": "offen"
+ },
+ {
+  "id": "rule_unclear:tageskarte",
+  "kind": "rule_unclear",
+  "severity": "warnung",
+  "title": "Köderregel «Nur Kunstköder» unklar – Vorstandsklärung erforderlich",
+  "maps": [
+   "tageskarte"
+  ],
+  "layer": "Nur Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "field": "layer",
+  "original": "Nur Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "suggestion": null,
+  "occurrences": 2,
+  "sectionIds": [
+   "tageskarte-ky241txene",
+   "tageskarte-ql5gl6nvif"
+  ],
+  "normalizable": false,
+  "note": "Der Titel verbietet Spinner, Löffel, Wobbler und künstliche Köderfische; welche Köder erlaubt sind, ist offen.",
+  "decisionRef": "O8",
+  "status": "offen"
+ },
+ {
+  "id": "temporal_free_text:jugend-1ey4uyh3yw7",
+  "kind": "temporal_free_text",
+  "severity": "warnung",
+  "title": "Zeitliche Regel nur als Freitext bei «Simmi Tal»: «ist bis 30.04. gesperrt»",
+  "maps": [
+   "jugend"
+  ],
+  "layer": "Natur- & Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "field": "description",
+  "original": "ist bis 30.04. gesperrt",
+  "suggestion": null,
+  "occurrences": 1,
+  "sectionIds": [
+   "jugend-1ey4uyh3yw7"
+  ],
+  "normalizable": false,
+  "note": "Wird nicht automatisch in eine Datumsregel umgedeutet (fehlt z. B. Beginn und Jahr). Admin kann eine strukturierte Sperrzeit (von/bis) erfassen.",
+  "decisionRef": "O10",
+  "status": "offen"
+ },
+ {
+  "id": "temporal_free_text:aktive-1j7yk1a5ksv",
+  "kind": "temporal_free_text",
+  "severity": "warnung",
+  "title": "Zeitliche Regel nur als Freitext bei «Simmi Tal»: «ist bis 30.04.gesperrt»",
+  "maps": [
+   "aktive"
+  ],
+  "layer": "Natur- & Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "field": "description",
+  "original": "ist bis 30.04.gesperrt",
+  "suggestion": null,
+  "occurrences": 1,
+  "sectionIds": [
+   "aktive-1j7yk1a5ksv"
+  ],
+  "normalizable": false,
+  "note": "Wird nicht automatisch in eine Datumsregel umgedeutet (fehlt z. B. Beginn und Jahr). Admin kann eine strukturierte Sperrzeit (von/bis) erfassen.",
+  "decisionRef": "O10",
+  "status": "offen"
+ },
+ {
+  "id": "code_format:ouqo1uxntq",
+  "kind": "code_format",
+  "severity": "info",
+  "title": "Uneinheitlicher Code «Code:151»",
+  "maps": [
+   "aktive",
+   "jugend"
+  ],
+  "layer": "Nur Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "field": "code",
+  "original": "Code:151",
+  "suggestion": "Gewässercode: 151",
+  "occurrences": 2,
+  "sectionIds": [
+   "aktive-1tdrxieb19a",
+   "jugend-1gvi2ww8727"
+  ],
+  "normalizable": true,
+  "note": "Der Code wurde trotzdem erkannt; der Vorschlag betrifft nur die Schreibweise.",
+  "status": "offen"
+ },
+ {
+  "id": "description_whitespace:20idlm8yvqn",
+  "kind": "description_whitespace",
+  "severity": "info",
+  "title": "Auffälliger Leerraum in der Beschreibung von «Burgerauergiessen»",
+  "maps": [
+   "aktive"
+  ],
+  "layer": "gesperrte Gewässer",
+  "field": "description",
+  "original": "\"Gewässercode: 181                                      gesperrt!\"",
+  "suggestion": "Gewässercode: 181 gesperrt!",
+  "occurrences": 1,
+  "sectionIds": [
+   "aktive-1u0gvr3slwr"
+  ],
+  "normalizable": false,
+  "note": "Für die Anzeige wird Leerraum immer zusammengefasst; der Inhalt ändert sich nicht.",
+  "status": "offen"
+ },
+ {
+  "id": "empty_layer:aktive:8",
+  "kind": "empty_layer",
+  "severity": "info",
+  "title": "Leere Ebene «Unbenannte Ebene»",
+  "maps": [
+   "aktive"
+  ],
+  "layer": "Unbenannte Ebene",
+  "field": "layer",
+  "original": "Unbenannte Ebene",
+  "suggestion": "(Ebene in My Maps löschen)",
+  "occurrences": 0,
+  "sectionIds": [],
+  "normalizable": false,
+  "note": "Die Ebene enthält keine Objekte und wird in der App nicht angezeigt.",
+  "status": "offen"
+ },
+ {
+  "id": "empty_layer:aktive:9",
+  "kind": "empty_layer",
+  "severity": "info",
+  "title": "Leere Ebene «Unbenannte Ebene»",
+  "maps": [
+   "aktive"
+  ],
+  "layer": "Unbenannte Ebene",
+  "field": "layer",
+  "original": "Unbenannte Ebene",
+  "suggestion": "(Ebene in My Maps löschen)",
+  "occurrences": 0,
+  "sectionIds": [],
+  "normalizable": false,
+  "note": "Die Ebene enthält keine Objekte und wird in der App nicht angezeigt.",
+  "status": "offen"
+ },
+ {
+  "id": "multiple_codes_per_name",
+  "kind": "multiple_codes_per_name",
+  "severity": "info",
+  "title": "11 Gewässernamen tragen mehrere Gewässercodes",
+  "maps": [
+   "aktive",
+   "jugend",
+   "tageskarte"
+  ],
+  "layer": null,
+  "field": "code",
+  "original": "Werdenberger Binnenkanal: 151/152/153; Tobelbach: 181/280; Kobelbach: 260/280; Walchenbach: 230/270; Stoggenbach: 181/230; Loggnerbach: 181/190; Läuibach: 210/270; Farbbach: 190/280; Rinne: 190/252/270; Mühlbach: 260/280; Mööslibach: 251/252",
+  "suggestion": null,
+  "occurrences": 11,
+  "sectionIds": [],
+  "normalizable": false,
+  "note": "Kein Fehler im engeren Sinn: Regeln und Codes gelten pro Abschnitt. Bedeutung der Codes bestätigen.",
+  "decisionRef": "O29",
+  "status": "offen"
+ },
+ {
+  "id": "name_variant_possible:1gpv77h1uqt",
+  "kind": "name_variant_possible",
+  "severity": "info",
+  "title": "Mögliche Schreibvariante «Kobelbach» / «Tobelbach»",
+  "maps": [
+   "aktive",
+   "jugend"
+  ],
+  "layer": null,
+  "field": "name",
+  "original": "Kobelbach (2×) / Tobelbach (26×)",
+  "suggestion": null,
+  "occurrences": 28,
+  "sectionIds": [
+   "aktive-1ibphryy2jp",
+   "aktive-2cw55k9wowo",
+   "aktive-1fasrnn8l29",
+   "aktive-132ujqudj6p",
+   "aktive-29gfivu8p3m",
+   "aktive-jrqpg067pr",
+   "aktive-mobuqy331j",
+   "aktive-t6b8ppi3lt",
+   "aktive-1mvmdqyj2pj",
+   "aktive-2503dbkfhbb",
+   "aktive-ocfyld8fpw",
+   "aktive-ivrr20pnv8",
+   "aktive-ynqd14bv62",
+   "aktive-bnsqe0hdqk",
+   "aktive-qgck52pl33",
+   "aktive-noogcdwdy0",
+   "aktive-1yxj9xbdkpp",
+   "aktive-20d6oh7wsla",
+   "aktive-y8hnhan36z",
+   "aktive-1jrzcratiow",
+   "aktive-2cwbugn9djx",
+   "aktive-jjzo7ikd1y",
+   "aktive-1y6fofllq90",
+   "aktive-7z1b9xiwjn",
+   "aktive-1lqio5qsqzs",
+   "aktive-el23jmbofr",
+   "jugend-w50c6awq9w",
+   "jugend-1mq15zg3hks"
+  ],
+  "normalizable": false,
+  "note": "Namen unterscheiden sich in nur einem Zeichen. Codes Kobelbach: 280, 260; Tobelbach: 181, 280 (gemeinsamer Code 280). Kann ein anderes Gewässer sein – kein automatischer Vorschlag.",
+  "status": "offen"
+ },
+ {
+  "id": "name_variant_possible:pj61b3fxvu",
+  "kind": "name_variant_possible",
+  "severity": "info",
+  "title": "Mögliche Schreibvariante «Rieterenbach» / «Ritterenbach»",
+  "maps": [
+   "aktive"
+  ],
+  "layer": null,
+  "field": "name",
+  "original": "Rieterenbach (3×) / Ritterenbach (1×)",
+  "suggestion": null,
+  "occurrences": 4,
+  "sectionIds": [
+   "aktive-21smktw8nns",
+   "aktive-1emc0cj03uw",
+   "aktive-1806b69jze6",
+   "aktive-1w7zgmsu4rj"
+  ],
+  "normalizable": false,
+  "note": "Namen unterscheiden sich in nur einem Zeichen. Codes Rieterenbach: 230; Ritterenbach: 230 (gemeinsamer Code 230). Kann ein anderes Gewässer sein – kein automatischer Vorschlag.",
+  "status": "offen"
+ },
+ {
+  "id": "name_whitespace:1uawbzqx9ci",
+  "kind": "name_whitespace",
+  "severity": "info",
+  "title": "Leerzeichen im Namen «Böschni Steinig Furt »",
+  "maps": [
+   "aktive"
+  ],
+  "layer": null,
+  "field": "name",
+  "original": "Böschni Steinig Furt ",
+  "suggestion": "Böschni Steinig Furt",
+  "occurrences": 4,
+  "sectionIds": [
+   "aktive-i79w5r1p9w",
+   "aktive-48el25kp63",
+   "aktive-4k9swmucnk",
+   "aktive-27nkoxqy2ql"
+  ],
+  "normalizable": true,
+  "note": "Nur Leerraum betroffen.",
+  "status": "offen"
+ },
+ {
+  "id": "name_whitespace:2daovns1jx4",
+  "kind": "name_whitespace",
+  "severity": "info",
+  "title": "Leerzeichen im Namen «Kiesfang Grabser Bach ( Hasenbünt)»",
+  "maps": [
+   "aktive"
+  ],
+  "layer": null,
+  "field": "name",
+  "original": "Kiesfang Grabser Bach ( Hasenbünt)",
+  "suggestion": "Kiesfang Grabser Bach (Hasenbünt)",
+  "occurrences": 1,
+  "sectionIds": [
+   "aktive-4wcchu1611"
+  ],
+  "normalizable": true,
+  "note": "Nur Leerraum betroffen.",
+  "status": "offen"
+ },
+ {
+  "id": "online_only_photo",
+  "kind": "online_only_photo",
+  "severity": "info",
+  "title": "14 Objekte mit Foto (nur online verfügbar)",
+  "maps": [
+   "aktive",
+   "jugend",
+   "tageskarte"
+  ],
+  "layer": null,
+  "field": "description",
+  "original": "mymaps.usercontent.google.com",
+  "suggestion": null,
+  "occurrences": 14,
+  "sectionIds": [
+   "aktive-zloan1cdm6",
+   "aktive-1vzic00i70x",
+   "aktive-2g53v95sc24",
+   "aktive-h6sp583o2b",
+   "aktive-1vse6djtrzm",
+   "jugend-1bv844ilq6r",
+   "jugend-1bfdwb5lphz",
+   "jugend-1s0nbuj8c1x",
+   "jugend-189iuiro52",
+   "jugend-2ah5mdkzl8z",
+   "tageskarte-ej0tb8g23n",
+   "tageskarte-27v0liiiwe5",
+   "tageskarte-21ay7jp31ei",
+   "tageskarte-ky241txene"
+  ],
+  "normalizable": false,
+  "note": "Fotos sind in der Beschreibung verlinkt und werden nicht offline gespeichert. Die App zeigt sie nur mit Verbindung.",
+  "status": "offen"
+ },
+ {
+  "id": "point_in_rule_layer:bg5xq52u8g",
+  "kind": "point_in_rule_layer",
+  "severity": "info",
+  "title": "Punkt «Fischerei Verein Werdenberg» liegt in einer Köderebene",
+  "maps": [
+   "aktive"
+  ],
+  "layer": "Natur- & Kunstköder, Löffel, Wobbler & Spinner",
+  "field": "layer",
+  "original": "Natur- & Kunstköder, Löffel, Wobbler & Spinner",
+  "suggestion": null,
+  "occurrences": 1,
+  "sectionIds": [
+   "aktive-k5rbzsy4on"
+  ],
+  "normalizable": false,
+  "note": "Der Punkt wird als Orientierungspunkt dargestellt, nicht als Gewässerabschnitt; die Köderregel der Ebene gilt nicht für ihn.",
+  "status": "offen"
+ },
+ {
+  "id": "point_in_rule_layer:zfp80phhtg",
+  "kind": "point_in_rule_layer",
+  "severity": "info",
+  "title": "Punkt «FVW Fischerheim» liegt in einer Köderebene",
+  "maps": [
+   "jugend",
+   "tageskarte"
+  ],
+  "layer": "Natur- & Kunstköder, Löffel, Wobbler & Spinner",
+  "field": "layer",
+  "original": "Natur- & Kunstköder, Löffel, Wobbler & Spinner",
+  "suggestion": null,
+  "occurrences": 2,
+  "sectionIds": [
+   "jugend-1bfdwb5lphz",
+   "tageskarte-27v0liiiwe5"
+  ],
+  "normalizable": false,
+  "note": "Der Punkt wird als Orientierungspunkt dargestellt, nicht als Gewässerabschnitt; die Köderregel der Ebene gilt nicht für ihn.",
+  "status": "offen"
+ },
+ {
+  "id": "rule_text_differs:qeo1baguxc",
+  "kind": "rule_text_differs",
+  "severity": "info",
+  "title": "Regeltext weicht vom Ebenentitel ab (1×)",
+  "maps": [
+   "aktive"
+  ],
+  "layer": "Voralpsee",
+  "field": "description",
+  "original": "Natur- & Kunstköder, Löffel, Wobbler & Spinner erlaubt.",
+  "suggestion": null,
+  "occurrences": 1,
+  "sectionIds": [
+   "aktive-1vse6djtrzm"
+  ],
+  "normalizable": false,
+  "note": "Ebene «Voralpsee». In der App werden Ebenenregel und Regeltext getrennt angezeigt; es wird nichts zusammengeführt.",
+  "decisionRef": "O20",
+  "status": "offen"
+ },
+ {
+  "id": "rule_text_differs:1ckdt8ox9l2",
+  "kind": "rule_text_differs",
+  "severity": "info",
+  "title": "Regeltext weicht vom Ebenentitel ab (1×)",
+  "maps": [
+   "jugend"
+  ],
+  "layer": "Voralpsee",
+  "field": "description",
+  "original": "Natur- & Kunstköder, Löffel, Wobbler & Spinner erlaubt.",
+  "suggestion": null,
+  "occurrences": 1,
+  "sectionIds": [
+   "jugend-2ah5mdkzl8z"
+  ],
+  "normalizable": false,
+  "note": "Ebene «Voralpsee». In der App werden Ebenenregel und Regeltext getrennt angezeigt; es wird nichts zusammengeführt.",
+  "decisionRef": "O20",
+  "status": "offen"
+ },
+ {
+  "id": "rule_text_differs:2dc36uj2b4j",
+  "kind": "rule_text_differs",
+  "severity": "info",
+  "title": "Regeltext weicht vom Ebenentitel ab (10×)",
+  "maps": [
+   "jugend"
+  ],
+  "layer": "Kiessämmler (gelten als Fliessgewässer)",
+  "field": "description",
+  "original": "Natur- & Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "suggestion": null,
+  "occurrences": 10,
+  "sectionIds": [
+   "jugend-khcx7xzwwg",
+   "jugend-1v78xyavk8p",
+   "jugend-5xip6d0877",
+   "jugend-15h5hhtly7u",
+   "jugend-7f5i39hlio",
+   "jugend-1zp4n9dygwa",
+   "jugend-1a8db7091r2",
+   "jugend-1u5f0ldirl",
+   "jugend-nvruu4bzza",
+   "jugend-1knxa8vc200"
+  ],
+  "normalizable": false,
+  "note": "Ebene «Kiessämmler (gelten als Fliessgewässer)». In der App werden Ebenenregel und Regeltext getrennt angezeigt; es wird nichts zusammengeführt.",
+  "decisionRef": "O21",
+  "status": "offen"
+ },
+ {
+  "id": "rule_text_differs:1xj2dghhzn8",
+  "kind": "rule_text_differs",
+  "severity": "info",
+  "title": "Regeltext weicht vom Ebenentitel ab (17×)",
+  "maps": [
+   "aktive"
+  ],
+  "layer": "Kiessämmler (gelten als Fliessgewässer)",
+  "field": "description",
+  "original": "Natur- & Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "suggestion": null,
+  "occurrences": 17,
+  "sectionIds": [
+   "aktive-rwd5w43ibe",
+   "aktive-o6gqur5x4o",
+   "aktive-2882lmc7hz",
+   "aktive-22bk48kw3p0",
+   "aktive-i5btsmeh4c",
+   "aktive-4wcchu1611",
+   "aktive-1eyl2okuik9",
+   "aktive-18j285327x1",
+   "aktive-1i1ghhmbtol",
+   "aktive-vrr9pk9wg9",
+   "aktive-53cj1eble8",
+   "aktive-1xdvp79p4et",
+   "aktive-17i209xoxqn",
+   "aktive-yq8ox2wmun",
+   "aktive-1k5q65wmpqc",
+   "aktive-2evnolhdnvd",
+   "aktive-k88eq0fq1i"
+  ],
+  "normalizable": false,
+  "note": "Ebene «Kiessämmler (gelten als Fliessgewässer)». In der App werden Ebenenregel und Regeltext getrennt angezeigt; es wird nichts zusammengeführt.",
+  "decisionRef": "O21",
+  "status": "offen"
+ },
+ {
+  "id": "rule_text_typo:aktive-zd5zpyf9s8:NNatur",
+  "kind": "rule_text_typo",
+  "severity": "info",
+  "title": "Tippfehler im Regeltext bei «Afagristbächli»: «NNatur»",
+  "maps": [
+   "aktive"
+  ],
+  "layer": "Natur- & Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "field": "description",
+  "original": "NNatur- & Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "suggestion": "Natur- & Kunstköder (Spinner, Löffel, Wobbler & künstliche Köderfische verboten)",
+  "occurrences": 1,
+  "sectionIds": [
+   "aktive-zd5zpyf9s8"
+  ],
+  "normalizable": true,
+  "note": "Verdoppelter Grossbuchstabe am Wortanfang.",
+  "status": "offen"
+ }
+]
