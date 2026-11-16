@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.expo/
+web-build/
+*.log
+.env
+.env.*
+!.env.example
+backend/storage/
+data/basemap/*-detail.mbtiles
+coverage/
+test-results/
+playwright-report/
+dist-web/
+
+# Lokale Docker-Anpassungen
+docker-compose.override.yml
