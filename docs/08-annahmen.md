@@ -6,7 +6,7 @@
 |---|---|---|
 | KMZ-Dateien | Alle drei enthalten **nur einen Netzwerklink**, keine Kartendaten. | Gekennzeichnet (Importbericht, Admin). Der Import lehnt reine Netzwerklink-Dateien mit Erklärung ab. |
 | Geprüfte KML-Basisdateien | **Nicht geliefert.** | Die Daten wurden am 15.11.2026 über die Netzwerklinks abgerufen. Grössen (760/219/20 KB) und Objektzahlen stimmen mit dem AD überein. Die Versionen sind aktiv, aber **als «nicht geprüfte Basis»** markiert. |
-| Vereinslogo `logo-transparent.png` | **Nicht geliefert.** | Platzhalter «FVW» in App und Admin. Einbau: Datei nach `app/assets/` kopieren und eine Zeile in `app/src/lib/brand.ts` ändern (proportional, unverändert). |
+| Vereinslogo `logo-transparent.png` | **Geliefert am 21.11.2026.** | In der App eingebaut (Kopfzeile und Anmeldung, `app/assets/logo-transparent.png`, nur der leere transparente Rand entfernt). Admin-Oberfläche zeigt noch den Platzhalter «FVW». |
 | Web-Prototyp «Fangbuch – Fischereiverein» | Im AD verlinkt, gelesen. | Fischarten, Längengrenze (1–150 cm, technisch) und Farbschema übernommen. |
 
 ## 8.2 Fachliche Annahmen (alle konfigurierbar oder als offen markiert)

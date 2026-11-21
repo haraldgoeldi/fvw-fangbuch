@@ -14,7 +14,7 @@ export function Txt({ children, style, muted, bold, size, ...rest }: { children:
 export const H1 = ({ children }: { children: ReactNode }) => <Txt size={26} bold accessibilityRole="header">{children}</Txt>;
 export const H2 = ({ children }: { children: ReactNode }) => <Txt size={20} bold accessibilityRole="header" style={{ marginTop: space.m }}>{children}</Txt>;
 
-/** Vereinslogo – proportional, unverändert. Platzhalter, solange logo-transparent.png fehlt. */
+/** Vereinslogo – proportional, unverändert. Platzhalter nur, falls kein Logo hinterlegt ist. */
 export function ClubLogo({ size = 40 }: { size?: number }) {
   const c = useColors();
   if (LOGO) return <Image source={LOGO} style={{ width: size, height: size }} resizeMode="contain" accessibilityLabel="Logo Fischereiverein Werdenberg" />;
@@ -53,7 +53,7 @@ export function Screen({ title, children, scroll = true, right, testID, back }: 
           <Pressable accessibilityRole="button" accessibilityLabel="Zurück" onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))} style={{ minWidth: 48, minHeight: 48, alignItems: 'center', justifyContent: 'center' }} testID="nav-back">
             <Text style={{ fontSize: 28, color: c.water, fontWeight: '800' }}>‹</Text>
           </Pressable>
-        ) : <ClubLogo size={36} />}
+        ) : <ClubLogo size={44} />}
         <Text style={{ flex: 1, color: c.ink, fontSize: 21, fontWeight: '800' }} numberOfLines={1} accessibilityRole="header">{title}</Text>
         {right}
         <SyncPill />
