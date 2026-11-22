@@ -12,6 +12,10 @@ import { tileSource, type TileSource } from '../lib/tiles';
  */
 const TILE = 256;
 const MIN_Z = 10.5, MAX_Z = 18;
+/** Zoom beim Öffnen der Karte (ca. 3× näher als das ganze Pachtgebiet; offline-Basiskarte reicht bis 14). */
+const START_Z = 13;
+/** Zoom, wenn beim ersten Standort-Fix auf den eigenen Standort gesprungen wird. */
+const LOCATION_Z = 14;
 type XY = [number, number];
 
 const lonToX = (lon: number) => (lon + 180) / 360;
@@ -85,7 +89,27 @@ export const WaterMap = memo(function WaterMap(p: WaterMapProps) {
     const z = Math.log2(Math.min(size.w / ((extent[2] - extent[0]) * TILE), size.h / ((extent[3] - extent[1]) * TILE))) - 0.1;
     setView({ cx: (extent[0] + extent[2]) / 2, cy: (extent[1] + extent[3]) / 2, z: Math.max(MIN_Z, Math.min(MAX_Z, z)) });
   };
-  useEffect(() => { if (!view && size.w && extent) fit(); }, [size.w, extent]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Startansicht: herangezoomt auf das Fischerheim (Orientierungspunkt), sonst auf die Mitte der Gewässer.
+  // Das ganze Gebiet zeigt weiterhin der Knopf «⤢».
+  const start = () => {
+    if (!extent || !size.w) return;
+    const fitZ = Math.log2(Math.min(size.w / ((extent[2] - extent[0]) * TILE), size.h / ((extent[3] - extent[1]) * TILE))) - 0.1;
+    const home = prepared.find((x) => x.point && x.point[0] >= extent[0] && x.point[0] <= extent[2] && x.point[1] >= extent[1] && x.point[1] <= extent[3])?.point;
+    const [cx, cy] = home ?? [(extent[0] + extent[2]) / 2, (extent[1] + extent[3]) / 2];
+    setView({ cx, cy, z: Math.max(MIN_Z, Math.min(MAX_Z, Math.max(fitZ, START_Z))) });
+  };
+  useEffect(() => { if (!view && size.w && extent) start(); }, [size.w, extent]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Erster Standort-Fix im Vereinsgebiet: einmalig auf den eigenen Standort zoomen.
+  const centeredOnLocation = useRef(false);
+  useEffect(() => {
+    if (!p.location) { centeredOnLocation.current = false; return; }
+    if (centeredOnLocation.current || !view || !extent) return;
+    centeredOnLocation.current = true;
+    const x = lonToX(p.location.lon), y = latToY(p.location.lat);
+    const m = (extent[2] - extent[0]) * 0.1;
+    if (x < extent[0] - m || x > extent[2] + m || y < extent[1] - m || y > extent[3] + m) return;
+    setView((v) => ({ cx: x, cy: y, z: Math.max(v?.z ?? LOCATION_Z, LOCATION_Z) }));
+  }, [p.location, view !== null, extent]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { if (p.focusRequest) setView((v) => ({ cx: lonToX(p.focusRequest!.lon), cy: latToY(p.focusRequest!.lat), z: p.focusRequest!.zoom ?? Math.max(v?.z ?? 14, 14) })); }, [p.focusRequest?.nonce]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const viewRef = useRef(view); viewRef.current = view;
