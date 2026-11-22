@@ -34,6 +34,8 @@ export const SETTINGS: SettingDef[] = [
   { key: 'recipients.incident_report', group: 'Empfänger', label: 'Empfänger Meldungen (Verschmutzung, tote Fische)', description: 'Adresse(n) für Meldungen (Komma-getrennt).', type: 'email', default: 'harald.goeldi@gmail.com' },
   { key: 'recipients.incident_delivery', group: 'Empfänger', label: 'Versandart Meldungen', description: '«E-Mail» = an die Empfängeradresse (im Entwurfsmodus nur als Entwurf); «nur Admin» = nur im Adminbereich sichtbar.', type: 'enum', options: ['email', 'nur_admin'], default: 'email' },
   { key: 'recipients.admin_alerts', group: 'Empfänger', label: 'Empfänger Admin-Hinweise', description: 'Adresse für Hinweise wie «Gewässerkarte geändert» oder Integrationsfehler. Nicht festgelegt = nur Anzeige im Adminbereich.', type: 'email', default: null },
+  { key: 'eventfrog.event_ids', group: 'Tageskarten', label: 'Eventfrog-Event-IDs der Tageskarten', description: 'Nummern der Eventfrog-Events, über die Tageskarten verkauft werden (Komma-getrennt). Die Nummer steht in Eventfrog in der Adresse des Events bzw. in den Event-Einstellungen. Leer = kein Abgleich.', type: 'string[]', default: [] },
+  { key: 'eventfrog.date_field', group: 'Tageskarten', label: 'Personalisierungsfeld «Fischtag»', description: 'Titel des Eventfrog-Personalisierungsfelds, in dem Käufer den Fischtag wählen (z. B. «Datum»). Nicht festgelegt = die Tageskarte gilt am Kaufdatum.', type: 'string', default: null },
   { key: 'reminders.enabled', group: 'Erinnerungen', label: 'Erinnerungen an offene Fangmeldungen', description: 'Push am Abend des Fischtags und E-Mail am Folgetag (optional, AD §5).', type: 'bool', default: false },
   { key: 'reminders.evening_hour', group: 'Erinnerungen', label: 'Uhrzeit Abend-Erinnerung', description: 'Stunde (0–23) für die Push-Erinnerung am Fischtag.', type: 'int', default: null },
   { key: 'reminders.season_end_days', group: 'Erinnerungen', label: 'Erinnerung vor Saisonende (Tage)', description: 'Tage vor Saisonende für die Erinnerung an Mitglieder.', type: 'int', default: null, decisionRef: 'O26' },
@@ -77,7 +79,9 @@ export function validateSetting(key: string, value: unknown): string | null {
       return parts.length && parts.every((p) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(p)) ? null : 'Ungültige E-Mail-Adresse';
     }
     case 'string': return typeof value === 'string' ? null : 'Text erwartet';
-    case 'string[]': return Array.isArray(value) && value.every((v) => typeof v === 'string' && (!d.options || d.options.includes(v))) ? null : 'Liste erwartet';
+    case 'string[]':
+      if (key === 'eventfrog.event_ids') return Array.isArray(value) && value.every((v) => typeof v === 'string' && /^\d+$/.test(v)) ? null : 'Nur Ziffern, mehrere durch Komma getrennt';
+      return Array.isArray(value) && value.every((v) => typeof v === 'string' && (!d.options || d.options.includes(v))) ? null : 'Liste erwartet';
     default: return null;
   }
 }

@@ -36,8 +36,6 @@ const schema = z.object({
   EVENTFROG_MODE: z.enum(['off', 'demo', 'live']).default('off'),
   EVENTFROG_BASE_URL: z.string().default('https://api.eventfrog.net'),
   EVENTFROG_API_KEY: optStr,
-  EVENTFROG_ORDERS_PATH: optStr,
-  EVENTFROG_FIELD_MAP: optStr,
 
   MAIL_MODE: z.enum(['draft', 'smtp']).default('draft'),
   SMTP_URL: optStr,

@@ -84,7 +84,7 @@ Danach ist die Vorschau unter http://localhost:8790 erreichbar.
 npm test
 ```
 
-Das sind 24 Shared-Tests und 28 Backend-Integrationstests gegen die Test-Datenbank `fvw_test`.
+Das sind 24 Shared-Tests und 38 Backend-Integrationstests gegen die Test-Datenbank `fvw_test`.
 
 ```bash
 node --test e2e/app.e2e.mjs

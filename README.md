@@ -85,7 +85,7 @@ Danach die App mit Expo Go öffnen, oder `npx expo run:android|ios` für einen B
 npm test
 ```
 
-Das sind 24 Fachlogik- und 28 Backend-Integrationstests.
+Das sind 24 Fachlogik- und 38 Backend-Integrationstests.
 
 ```bash
 node --test e2e/app.e2e.mjs

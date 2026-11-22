@@ -20,7 +20,7 @@ Die Adminoberfläche ist im Browser unter `https://<domain>/admin/` erreichbar. 
 | Neues Gewässer bestätigen | Gewässer → «Bestätigen» | Von Fischern erfasste Gewässer sind bis dahin nur für sie sichtbar. |
 | Fischart ergänzen oder deaktivieren | Fischarten | Bestehende Fänge bleiben erhalten. |
 | Patent ausstellen, verlängern, sperren | Patentarten & Patente | Gesperrte Ausweise kommen bei der nächsten Synchronisation auf die Sperrliste der Aufseher. Preise gibt es keine (O1/O2). |
-| Tageskarten aus Eventfrog | Patentarten: «Eventfrog-Ticketart» exakt wie in Eventfrog eintragen | Bestellungen ohne zugeordnete Patentart erscheinen als Warnung unter Integrationen. |
+| Tageskarten aus Eventfrog | 1. Einstellungen → Tageskarten: Eventfrog-Event-ID(s) eintragen, optional das Personalisierungsfeld mit dem Fischtag. 2. Patentarten: «Eventfrog-Ticketart» = Name der Ticketkategorie exakt wie in Eventfrog **oder** deren Kategorie-ID. | Abgleich alle 30 Minuten oder «Eventfrog-Abgleich jetzt». Tickets ohne zugeordnete Patentart erscheinen als Warnung unter Integrationen. In Eventfrog stornierte Tickets sperren die Tageskarte. |
 | Mitglied ohne E-Mail | Personen & Rollen → «Zugangscode (ohne E-Mail)» | Der Einmalcode gilt 14 Tage und wird persönlich übergeben. |
 | Fänge aller Mitglieder, CSV | Fänge (alle) | Filter nach Datum und Art; CSV für Excel. |
 | Rücklaufquote | Rücklaufquote | Quote pro Patentart und Saison mit Liste fehlender Meldungen. **Keine Folgen** (O15). |

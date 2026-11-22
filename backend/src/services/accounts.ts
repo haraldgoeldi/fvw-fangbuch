@@ -82,28 +82,41 @@ export async function syncGuestOrders(ctx: AppContext, actor: Actor = SYSTEM) {
   }
   let orders;
   try {
-    orders = await ctx.eventfrog.fetchOrders(null);
+    orders = await ctx.eventfrog.fetchOrders({
+      eventIds: (await getSetting<string[] | null>(ctx.db, 'eventfrog.event_ids')) ?? [],
+      dateField: await getSetting<string | null>(ctx.db, 'eventfrog.date_field'),
+    });
   } catch (e: any) {
     await recordError(ctx.db, 'eventfrog', `Abgleich fehlgeschlagen: ${e.message}`);
     return { ok: false, message: e.message };
   }
   const source = ctx.eventfrog.mode === 'demo' ? 'demo' : 'eventfrog';
-  let created = 0, unmapped = 0;
+  let created = 0, unmapped = 0, cancelled = 0;
   const season = await getSetting<number>(ctx.db, 'season.current_year');
   for (const o of orders) {
     await tx(ctx.db, async (c) => {
       const email = normEmail(o.email);
+      const ext = `${o.orderId}/${o.ticketNo ?? ''}`;
+      const existing = await one<any>(c, `SELECT id, status FROM permit WHERE source=$1 AND external_ref=$2`, [source === 'demo' ? 'demo' : 'eventfrog', ext]);
+      if (o.cancelled && !existing) return; // storniert, bevor die App es gesehen hat: nichts anlegen
       let guest = await one<any>(c, `SELECT * FROM person WHERE kind='guest' AND lower(email)=$1 AND anonymized_at IS NULL`, [email]);
       if (!guest) {
         guest = await one<any>(c, `INSERT INTO person(kind, email, display_name, eventfrog_email, source) VALUES ('guest',$1,$2,$1,$3) RETURNING *`,
           [email, o.buyerName?.trim() || 'Gast', source === 'demo' ? 'demo' : 'eventfrog']);
       }
-      const type = await one<any>(c, `SELECT * FROM permit_type WHERE eventfrog_ticket_type = $1 AND status <> 'archiviert' ORDER BY created_at LIMIT 1`, [o.ticketType]);
+      // Zuordnung über den Namen der Ticketkategorie oder deren Eventfrog-ID
+      const type = await one<any>(c, `SELECT * FROM permit_type WHERE eventfrog_ticket_type = ANY($1::text[]) AND status <> 'archiviert' ORDER BY created_at LIMIT 1`,
+        [[o.ticketType, o.categoryId].filter((x): x is string => !!x)]);
       let permitId: string | null = null;
-      if (type) {
-        const ext = `${o.orderId}/${o.ticketNo ?? ''}`;
-        const p = await one<any>(c, `SELECT id FROM permit WHERE source=$1 AND external_ref=$2`, [source === 'demo' ? 'demo' : 'eventfrog', ext]);
-        if (p) permitId = p.id;
+      if (o.cancelled) {
+        // In Eventfrog storniert: bestehende Tageskarte sperren, keine neue anlegen
+        if (existing.status !== 'gesperrt') {
+          await q(c, `UPDATE permit SET status='gesperrt', note=trim(concat(note, ' In Eventfrog storniert.')) WHERE id=$1`, [existing.id]);
+          cancelled++;
+        }
+        permitId = existing.id;
+      } else if (type) {
+        if (existing) permitId = existing.id;
         else {
           const seasonYear = Number(o.validFrom.slice(0, 4));
           await q(c, `INSERT INTO season(year, label) VALUES ($1, $2) ON CONFLICT DO NOTHING`, [seasonYear, `Saison ${seasonYear}`]);
@@ -120,11 +133,11 @@ export async function syncGuestOrders(ctx: AppContext, actor: Actor = SYSTEM) {
         [o.orderId, o.ticketNo, email, o.buyerName, o.ticketType, o.validFrom, o.validTo, source, guest.id, permitId]);
     });
   }
-  const msg = `Abgleich: ${orders.length} Bestellungen, ${created} neue Tageskarten${unmapped ? `, ${unmapped} ohne zugeordnete Patentart` : ''}`;
+  const msg = `Abgleich: ${orders.length} Tickets, ${created} neue Tageskarten${cancelled ? `, ${cancelled} storniert und gesperrt` : ''}${unmapped ? `, ${unmapped} ohne zugeordnete Patentart` : ''}`;
   await recordSuccess(ctx.db, 'eventfrog', msg);
   if (unmapped) await q(ctx.db, `INSERT INTO integration_log(key, level, message) VALUES ('eventfrog','warnung',$1)`, [`${unmapped} Bestellungen mit Ticketart ohne Patentart-Zuordnung (Admin → Patentarten)`]);
   void season;
-  return { ok: true, total: orders.length, created, unmapped };
+  return { ok: true, total: orders.length, created, cancelled, unmapped };
 }
 
 // ---------------------------------------------------------------- Anmeldung
