@@ -2,20 +2,17 @@ import { formatDateCH, formatDateTimeCH, formatDuration, tourDurationSec, zurich
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Banner, Button, Card, H2, Pill, Row, Screen, Txt } from '../../components/ui';
-import { kvGet } from '../../lib/db';
 import { listTours } from '../../lib/local';
 import { useApp } from '../../lib/store';
 
 export default function Dashboard() {
   const { boot, session, online, pending, mapUpdatedNotice, dismissMapNotice, dataVersion, foreign } = useApp();
   const [tours, setTours] = useState<Tour[]>([]);
-  const [news, setNews] = useState<any[]>([]);
   const [now, setNow] = useState(Date.now());
 
   const load = useCallback(async () => {
     if (!session) return;
     setTours(await listTours(session.personId));
-    setNews((await kvGet<any[]>(`news:${session.personId}`)) ?? []);
   }, [session]);
   useFocusEffect(useCallback(() => { load(); }, [load]));
   useEffect(() => { load(); }, [dataVersion, load]);
@@ -28,7 +25,6 @@ export default function Dashboard() {
   const today = zurichDate(new Date());
   const valid = boot.permits.filter((p) => p.currentlyValid);
   const soon = valid.filter((p) => (Date.parse(p.validTo) - Date.now()) / 86400_000 < 14 && p.typeKind !== 'tag');
-  const latestNews = news.filter((n) => !n.expired).slice(0, 2);
   const roleLabel = boot.me.kind === 'guest' ? 'Gast (Tageskarte)' : boot.me.roles.includes('admin') ? 'Vorstand/Admin' : boot.me.roles.includes('warden') ? 'Aufseher' : 'Mitglied';
 
   return (
@@ -71,10 +67,6 @@ export default function Dashboard() {
         </Banner>
       )}
 
-      {latestNews.length ? <H2>Neuigkeiten</H2> : null}
-      {latestNews.map((n) => (
-        <Card key={n.id}><Txt bold>{n.title}</Txt><Txt muted size={14}>{formatDateCH(n.publishedAt)}</Txt><Txt numberOfLines={3}>{n.body}</Txt></Card>
-      ))}
       <Txt muted size={13}>{`Heute: ${formatDateCH(today)}`}</Txt>
     </Screen>
   );
