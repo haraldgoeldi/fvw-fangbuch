@@ -55,7 +55,20 @@ async function openWithRetry(): Promise<DB> {
   throw last;
 }
 
+/**
+ * Die Browser-Vorschau speichert in OPFS. Das gibt es nur in einem «sicheren Kontext» (https oder localhost).
+ * Ruft man die Vorschau auf dem Handy über http://<PC-IP>:8790 auf, scheitert expo-sqlite mit «Invalid VFS state».
+ */
+function webStorageProblem(): string | null {
+  if (Platform.OS !== 'web' || typeof window === 'undefined') return null;
+  const hasOpfs = typeof navigator !== 'undefined' && !!(navigator as any).storage?.getDirectory;
+  if (window.isSecureContext && hasOpfs) return null;
+  return 'Die Browser-Vorschau funktioniert nur auf dem PC selbst (http://localhost:8790). Auf dem Handy die App bitte mit Expo Go öffnen (Docker-Anleitung, Kapitel 8).';
+}
+
 async function open(): Promise<DB> {
+  const problem = webStorageProblem();
+  if (problem) throw new Error(problem);
   const db = await openWithRetry();
   if (Platform.OS !== 'web') {
     const key = await dbKey();
