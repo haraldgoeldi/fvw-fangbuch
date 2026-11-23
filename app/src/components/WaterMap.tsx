@@ -4,7 +4,7 @@ import { Image, PanResponder, PixelRatio, Platform, Pressable, Text, View, type 
 import Svg, { Circle, G, Path } from 'react-native-svg';
 import type { Pos } from '../lib/location';
 import { useColors } from '../lib/theme';
-import { tileSource, type TileSource } from '../lib/tiles';
+import { basemapSource, type BasemapKind, type TileSource } from '../lib/tiles';
 
 /**
  * Eigene, vollständig offline-fähige Kartenansicht: Web-Mercator, Kacheln aus MBTiles,
@@ -65,6 +65,10 @@ export interface WaterMapProps {
   onSelect: (s: Section | null) => void;
   attribution: string;
   focusRequest?: { lon: number; lat: number; zoom?: number; nonce: number } | null;
+  /** Gewählter Hintergrund; ohne Netz oder Google-Schlüssel wird swisstopo gezeigt. */
+  basemap?: BasemapKind;
+  googleKey?: string | null;
+  online?: boolean;
 }
 
 export const WaterMap = memo(function WaterMap(p: WaterMapProps) {
@@ -84,7 +88,12 @@ export const WaterMap = memo(function WaterMap(p: WaterMapProps) {
   const [src, setSrc] = useState<TileSource | null>(null);
   const today = new Date().toISOString().slice(0, 10);
 
-  useEffect(() => { tileSource().then(setSrc).catch(() => setSrc(null)); }, []);
+  const basemap = p.basemap ?? 'swisstopo', online = p.online ?? true;
+  useEffect(() => {
+    let alive = true;
+    basemapSource(basemap, p.googleKey, online).then((s) => alive && setSrc(s)).catch(() => alive && setSrc(null));
+    return () => { alive = false; };
+  }, [basemap, p.googleKey, online]);
 
   const fit = () => {
     if (!extent || !size.w) return;
@@ -227,7 +236,7 @@ export const WaterMap = memo(function WaterMap(p: WaterMapProps) {
   // ---------- Kacheln
   const tiles = useMemo(() => {
     if (!view || !size.w || !src) return [];
-    const tz = Math.max(src.minZoom, Math.min(src.maxZoom, Math.round(view.z + TILE_Z_BIAS)));
+    const tz = Math.max(src.minZoom, Math.min(src.maxZoom, Math.round(view.z + (src.hiDpi ? 0 : TILE_Z_BIAS))));
     const scale = 2 ** (view.z - tz);
     const n = 2 ** tz;
     const tsz = TILE * scale;
@@ -304,7 +313,7 @@ export const WaterMap = memo(function WaterMap(p: WaterMapProps) {
         {p.location ? <MapBtn label="◎" a11y="Auf meinen Standort zentrieren" onPress={() => setView((v) => v && ({ cx: lonToX(p.location!.lon), cy: latToY(p.location!.lat), z: Math.max(v.z, 15) }))} /> : null}
       </View>
       <View pointerEvents="none" style={{ position: 'absolute', right: 6, bottom: 4, backgroundColor: 'rgba(255,255,255,0.85)', paddingHorizontal: 6, borderRadius: 4 }}>
-        <Text style={{ fontSize: 11, color: '#222' }}>{p.attribution}{src ? ` · ${src.label}` : ''}</Text>
+        <Text style={{ fontSize: 11, color: '#222' }}>{src ? `${src.attribution} · ${src.label}` : p.attribution}</Text>
       </View>
     </View>
   );

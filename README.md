@@ -39,6 +39,16 @@ Das startet PostgreSQL 16, das Backend im **Demo-Modus** mit Demo-Daten und die 
 
 Stoppen mit `Ctrl+C` bzw. `docker compose down`. Alles zurücksetzen (Datenbank und Schlüssel löschen): `docker compose down -v`.
 
+### Google-Kartenhintergrund (optional)
+
+Ohne weitere Einstellung zeigt die Karte die swisstopo-Landeskarte (auch offline). Mit einem Schlüssel der Google Maps Platform zeigt die App online wahlweise **Google Karte** oder **Google Satellit**. Ohne Netz schaltet sie automatisch auf swisstopo um. Google-Kacheln werden nicht offline gespeichert, das erlauben die Google-Bedingungen nicht.
+
+1. In der [Google Cloud Console](https://console.cloud.google.com/) ein Projekt anlegen, ein Rechnungskonto hinterlegen und die **Map Tiles API** aktivieren.
+2. Unter *APIs & Dienste › Anmeldedaten* einen API-Schlüssel erstellen und ihn auf die **Map Tiles API** beschränken. Ein Budget mit E-Mail-Warnung einrichten.
+3. Im Hauptordner (neben `docker-compose.yml`) eine Datei `.env` mit einer Zeile anlegen: `GOOGLE_MAPS_API_KEY=dein-schlüssel`. Diese Datei wird nicht ins Git übernommen.
+4. `docker compose up --build` neu starten. In der App erscheint auf der Karte ein Knopf, der zwischen Google Karte, Google Satellit und swisstopo wechselt.
+
+
 Die End-to-End-Tests laufen gegen diesen Stack (Node.js ≥ 22 und Playwright auf dem Rechner nötig):
 
 ```bash

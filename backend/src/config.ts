@@ -49,6 +49,9 @@ const schema = z.object({
 
   MYMAPS_MODE: z.enum(['off', 'live', 'file']).default('live'),
   MYMAPS_FILE_DIR: optStr,
+
+  /** Google Maps Platform (Map Tiles API) – Schlüssel für den Online-Kartenhintergrund. Leer = nur swisstopo. */
+  GOOGLE_MAPS_API_KEY: optStr,
 });
 
 export type Config = z.infer<typeof schema> & { adminBootstrapEmails: string[]; eligibleStatuses: string[] };

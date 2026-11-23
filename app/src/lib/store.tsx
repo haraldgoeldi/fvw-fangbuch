@@ -26,7 +26,7 @@ export interface Bootstrap {
   warden: { publicKey: string; revoked: string[]; confirmationMethod: string; violationRequired: string[] } | null;
   integrations: { key: string; label: string; mode: string; detail: string; last_success_at: string | null; last_error: string | null }[];
   decisions: { id: string; question: string; interim: string; status: string; decision: string | null }[];
-  basemap: { attribution: string; variants: string[] };
+  basemap: { attribution: string; variants: string[]; googleKey?: string | null };
 }
 export interface MapBundle {
   group: MapGroup; title: string; season: number; versionId: string | null; sha256: string | null; verifiedBase: boolean; activatedAt: string | null; etag: string;
