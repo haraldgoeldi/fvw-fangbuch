@@ -74,7 +74,26 @@ export async function syncMembers(ctx: AppContext, actor: Actor = SYSTEM) {
 
 // ---------------------------------------------------------------- Eventfrog-Abgleich (Tageskarten)
 
-export async function syncGuestOrders(ctx: AppContext, actor: Actor = SYSTEM) {
+/** Datum in Zürcher Zeit, um `days` Tage verschoben (YYYY-MM-DD). */
+function shiftDay(ctx: AppContext, days: number) {
+  return zurichDate(new Date(ctx.now().getTime() + days * 86400_000));
+}
+
+/**
+ * Welche Tageskarten-Events der Gruppe abgefragt werden (Event-Datum):
+ * - «kurz» (alle 30 Minuten): gestern bis «Tage im Voraus» (Einstellung, Standard 14),
+ * - «voll» (einmal pro Nacht): vor 3 Tagen bis in 400 Tagen (Vorverkauf, Stornierungen),
+ * - «sofort» (beim Einlesen eines Tickets): gestern bis übermorgen.
+ */
+export type SyncWindow = 'kurz' | 'voll' | 'sofort';
+async function windowDates(ctx: AppContext, w: SyncWindow) {
+  if (w === 'voll') return { fromDate: shiftDay(ctx, -3), toDate: shiftDay(ctx, 400) };
+  if (w === 'sofort') return { fromDate: shiftDay(ctx, -1), toDate: shiftDay(ctx, 2) };
+  const ahead = (await getSetting<number | null>(ctx.db, 'eventfrog.sync_days_ahead')) ?? 14;
+  return { fromDate: shiftDay(ctx, -1), toDate: shiftDay(ctx, ahead) };
+}
+
+export async function syncGuestOrders(ctx: AppContext, actor: Actor = SYSTEM, window: SyncWindow = 'kurz') {
   const desc = ctx.eventfrog.describe();
   if (!desc.configured) {
     await recordError(ctx.db, 'eventfrog', `Abgleich nicht möglich: ${desc.detail}`);
@@ -84,6 +103,8 @@ export async function syncGuestOrders(ctx: AppContext, actor: Actor = SYSTEM) {
   try {
     orders = await ctx.eventfrog.fetchOrders({
       eventIds: (await getSetting<string[] | null>(ctx.db, 'eventfrog.event_ids')) ?? [],
+      groupIds: (await getSetting<string[] | null>(ctx.db, 'eventfrog.group_ids')) ?? [],
+      ...(await windowDates(ctx, window)),
       dateField: await getSetting<string | null>(ctx.db, 'eventfrog.date_field'),
     });
   } catch (e: any) {
@@ -163,6 +184,60 @@ export async function emailForTicket(ctx: AppContext, ticketNo: string): Promise
   return r?.email ?? null;
 }
 
+/**
+ * Sofort-Abgleich, wenn ein Gast ein eben gekauftes Ticket einliest oder sich mit der Bestell-E-Mail
+ * anmeldet, die der Server noch nicht kennt. Fragt nur die Tageskarten-Events von gestern bis übermorgen ab
+ * und läuft höchstens alle 20 Sekunden (Eventfrog-Limite). Fehler werden nur protokolliert.
+ */
+let lastLiveLookup = 0;
+const liveLookupsPerDay = new Map<string, number>();
+export async function liveGuestLookup(ctx: AppContext): Promise<boolean> {
+  if (ctx.eventfrog.mode === 'off' || !ctx.eventfrog.describe().configured) return false;
+  const now = ctx.now().getTime();
+  if (now - lastLiveLookup < 20_000) return false;
+  // höchstens 150 Sofort-Abgleiche pro Tag (je ca. 2–5 Anfragen), damit das Tageslimit für den Abgleich bleibt
+  const day = zurichDate(ctx.now());
+  const count = liveLookupsPerDay.get(day) ?? 0;
+  if (count >= 150) return false;
+  liveLookupsPerDay.clear();
+  liveLookupsPerDay.set(day, count + 1);
+  lastLiveLookup = now;
+  const r = await syncGuestOrders(ctx, SYSTEM, 'sofort');
+  return r.ok;
+}
+export function resetLiveLookupForTest() { lastLiveLookup = 0; liveLookupsPerDay.clear(); }
+
+/** E-Mail zur Ticketnummer; unbekannte Nummern werden sofort bei Eventfrog nachgeschlagen. */
+export async function emailForTicketLive(ctx: AppContext, ticketNo: string): Promise<string | null> {
+  return (await emailForTicket(ctx, ticketNo)) ?? ((await liveGuestLookup(ctx)) ? await emailForTicket(ctx, ticketNo) : null);
+}
+
+/**
+ * Anmeldung allein mit der Ticketnummer (Einstellung «Ticket genügt»): Wer die Nummer des Tickets hat,
+ * wird ohne E-Mail-Code als Gast angemeldet, solange die Tageskarte gilt (inkl. Nachmeldefrist).
+ */
+export async function loginWithTicket(ctx: AppContext, ticketNo: string, deviceLabel: string | null) {
+  rateLimit('ticketlogin', ctx.cfg.DEMO_MODE ? 500 : 30, 15 * 60_000);
+  rateLimit(`ticketlogin:${ticketNo.trim().toUpperCase()}`, ctx.cfg.DEMO_MODE ? 200 : 10, 15 * 60_000);
+  if ((await getSetting<string>(ctx.db, 'guest.ticket_login')) !== 'ticket_genuegt') {
+    throw new HttpError(400, 'code_required', 'Bitte den Code aus der E-Mail der Bestellung verwenden.');
+  }
+  const email = await emailForTicketLive(ctx, ticketNo);
+  const row = email ? await one<any>(ctx.db, `SELECT o.person_id, p.status FROM guest_order o LEFT JOIN permit p ON p.id = o.permit_id
+    WHERE upper(o.ticket_no) = upper($1) ORDER BY o.fetched_at DESC LIMIT 1`, [ticketNo.trim()]) : null;
+  const elig = email ? await resolveEligibility(ctx, email) : null;
+  if (!row?.person_id || row.status !== 'aktiv' || !elig || elig.kind !== 'guest' || elig.personId !== row.person_id) {
+    throw new HttpError(400, 'invalid_ticket', 'Zu dieser Ticketnummer gibt es keine gültige Tageskarte. Bitte Nummer prüfen oder später erneut versuchen.');
+  }
+  const authCtx = await ctx.auth.$context;
+  const existing = await authCtx.internalAdapter.findUserByEmail(email!);
+  const user = existing?.user ?? (await authCtx.internalAdapter.createUser({ email: email!, name: '', emailVerified: false }, { method: 'ticket' } as any));
+  const session = await authCtx.internalAdapter.createSession(user.id);
+  await linkPerson(ctx, elig.personId, user.id, email);
+  await audit(ctx.db, { personId: elig.personId, label: 'Ticketnummer' }, 'anmeldung', 'person', elig.personId, { geraet: deviceLabel, art: 'ticket' });
+  return { token: session.token };
+}
+
 const attempts = new Map<string, number[]>();
 export function rateLimit(key: string, max: number, windowMs: number, now = Date.now()) {
   const list = (attempts.get(key) ?? []).filter((t) => now - t < windowMs);
@@ -174,7 +249,9 @@ export function rateLimit(key: string, max: number, windowMs: number, now = Date
 export async function requestLoginCode(ctx: AppContext, email: string) {
   const e = normEmail(email);
   rateLimit(`code:${e}`, ctx.cfg.DEMO_MODE ? 200 : 5, 15 * 60_000);
-  const elig = await resolveEligibility(ctx, e);
+  let elig = await resolveEligibility(ctx, e);
+  // Eben gekauft? Dann kennt der Server die Bestellung evtl. noch nicht → sofort bei Eventfrog nachfragen.
+  if (!elig && (await liveGuestLookup(ctx))) elig = await resolveEligibility(ctx, e);
   if (!elig) {
     await audit(ctx.db, SYSTEM, 'login_abgelehnt', null, null, { emailHash: sha256(e).slice(0, 12) });
     return { sent: false };

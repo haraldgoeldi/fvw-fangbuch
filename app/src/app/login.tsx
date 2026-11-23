@@ -2,6 +2,7 @@ import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { openDayPassShop, TicketScanner } from '../components/DayPass';
 import { Banner, Button, Card, ClubLogo, Field, H1, Row, Txt } from '../components/ui';
 import { apiFetch, ApiError } from '../lib/api';
 import { API_URL } from '../lib/config';
@@ -23,9 +24,15 @@ export default function Login() {
   const [msg, setMsg] = useState<string | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [demo, setDemo] = useState<{ on: boolean; accounts: any[]; code: string | null }>({ on: false, accounts: [], code: null });
+  const [shopUrl, setShopUrl] = useState<string | null>(null);
+  const [ticketDirect, setTicketDirect] = useState(false);
+  const [scanning, setScanning] = useState(false);
+  const [boughtHint, setBoughtHint] = useState(false);
 
   useEffect(() => {
     apiFetch('/public/config').then(async (cfg) => {
+      setShopUrl(cfg?.dayPassShopUrl ?? null);
+      setTicketDirect(cfg?.ticketLogin === 'ticket_genuegt');
       if (!cfg?.demoMode) return;
       const accounts = await apiFetch('/demo/accounts').catch(() => []);
       setDemo({ on: true, accounts, code: null });
@@ -45,6 +52,26 @@ export default function Login() {
       }
     } catch (e) {
       setErr(e instanceof ApiError ? e.message : 'Anfrage fehlgeschlagen.');
+    } finally { setBusy(false); }
+  }
+
+  /** Tageskarte im Eventfrog-Shop kaufen; danach genügt die E-Mail der Bestellung (kein Einlesen nötig). */
+  async function buy() {
+    if (!shopUrl) return;
+    setErr(null);
+    await openDayPassShop(shopUrl);
+    setMode('email'); setStep(1); setBoughtHint(true);
+  }
+
+  /** Einstellung «Ticket genügt»: mit der Ticketnummer sofort anmelden, ohne E-Mail-Code. */
+  async function ticketLogin(no = ticket) {
+    setBusy(true); setErr(null);
+    try {
+      const r = await apiFetch('/auth/ticket-login', { body: { ticketNo: no.trim(), device: `${Platform.OS}-App` } });
+      await login(r.token);
+      router.replace('/');
+    } catch (e) {
+      setErr(e instanceof ApiError ? e.message : 'Anmeldung fehlgeschlagen.');
     } finally { setBusy(false); }
   }
 
@@ -72,6 +99,13 @@ export default function Login() {
           </View>
           {!online ? <Banner kind="warn" title="Keine Verbindung">Für die erste Anmeldung braucht es Internet. Danach funktioniert die App auch ohne Empfang.</Banner> : null}
           {authProblem && pending ? <Banner kind="info">{`${pending} Einträge sind auf diesem Gerät gespeichert und werden nach der Anmeldung übertragen.`}</Banner> : null}
+          {shopUrl ? (
+            <Card>
+              <Txt bold>Noch keine Tageskarte?</Txt>
+              <Txt muted size={14}>Kauf über Eventfrog. Danach hier die E-Mail der Bestellung eingeben, die Tageskarte wird sofort übernommen.</Txt>
+              <Button label="Tageskarte kaufen" kind="secondary" onPress={buy} testID="login-buy-daypass" />
+            </Card>
+          ) : null}
           <Card>
             <Row>
               <Button label="E-Mail" kind={mode === 'email' ? 'primary' : 'secondary'} onPress={() => { setMode('email'); setStep(1); }} style={{ flex: 1 }} />
@@ -85,12 +119,22 @@ export default function Login() {
               </>
             ) : step === 1 ? (
               <>
+                {boughtHint && mode === 'email' ? <Banner kind="info" title="Tageskarte gekauft?">Gib die E-Mail-Adresse ein, mit der du bei Eventfrog bestellt hast. Der Code kommt an diese Adresse.</Banner> : null}
                 {mode === 'email' ? (
                   <Field label="E-Mail-Adresse" hint="Mitglieder: die in Fairgate hinterlegte E-Mail. Tageskarte: die E-Mail der Bestellung." value={email} onChangeText={setEmail} keyboardType="email-address" autoCapitalize="none" autoComplete="email" autoCorrect={false} testID="login-email" />
                 ) : (
-                  <Field label="Ticketnummer der Tageskarte" hint="Der Code wird an die E-Mail-Adresse der Bestellung gesendet." value={ticket} onChangeText={setTicket} autoCapitalize="characters" autoCorrect={false} testID="login-ticket" />
+                  scanning ? (
+                    <TicketScanner onCancel={() => setScanning(false)} onTicket={(no) => { setScanning(false); setTicket(no); if (ticketDirect) ticketLogin(no); }} />
+                  ) : (
+                    <>
+                      <Field label="Ticketnummer der Tageskarte" hint={ticketDirect ? 'Steht auf dem Eventfrog-Ticket unter dem QR-Code.' : 'Steht unter dem QR-Code. Der Code wird an die E-Mail-Adresse der Bestellung gesendet.'} value={ticket} onChangeText={setTicket} autoCapitalize="characters" autoCorrect={false} testID="login-ticket" />
+                      {Platform.OS !== 'web' ? <Button label="QR-Code auf dem Ticket scannen" kind="secondary" onPress={() => { setErr(null); setScanning(true); }} testID="login-ticket-scan" /> : null}
+                    </>
+                  )
                 )}
-                <Button label="Code anfordern" kind="primary" big onPress={request} busy={busy} disabled={mode === 'email' ? !/\S+@\S+\.\S+/.test(email) : ticket.trim().length < 3} testID="login-request" />
+                {mode === 'ticket' && ticketDirect
+                  ? (!scanning ? <Button label="Anmelden" kind="primary" big onPress={() => ticketLogin()} busy={busy} disabled={ticket.trim().length < 3} testID="login-ticket-direct" /> : null)
+                  : (!scanning ? <Button label="Code anfordern" kind="primary" big onPress={request} busy={busy} disabled={mode === 'email' ? !/\S+@\S+\.\S+/.test(email) : ticket.trim().length < 3} testID="login-request" /> : null)}
               </>
             ) : (
               <>
