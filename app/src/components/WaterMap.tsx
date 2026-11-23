@@ -1,6 +1,6 @@
 import { closuresFor, simplifyLine, type Closure, type Geometry, type Position, type Section } from '@fvw/shared';
 import { memo, useEffect, useMemo, useRef, useState } from 'react';
-import { Image, PanResponder, Platform, Pressable, Text, View, type GestureResponderEvent, type LayoutChangeEvent } from 'react-native';
+import { Image, PanResponder, PixelRatio, Platform, Pressable, Text, View, type GestureResponderEvent, type LayoutChangeEvent } from 'react-native';
 import Svg, { Circle, G, Path } from 'react-native-svg';
 import type { Pos } from '../lib/location';
 import { useColors } from '../lib/theme';
@@ -16,6 +16,8 @@ const MIN_Z = 10.5, MAX_Z = 18;
 const START_Z = 13;
 /** Zoom, wenn beim ersten Standort-Fix auf den eigenen Standort gesprungen wird. */
 const LOCATION_Z = 14;
+/** Handy-Bildschirme haben 2–3 Bildpunkte pro Punkt: eine Kachelstufe feiner laden, damit die Karte scharf ist. */
+const TILE_Z_BIAS = Math.max(0, Math.min(1, Math.log2(PixelRatio.get() || 1)));
 type XY = [number, number];
 
 const lonToX = (lon: number) => (lon + 180) / 360;
@@ -225,7 +227,7 @@ export const WaterMap = memo(function WaterMap(p: WaterMapProps) {
   // ---------- Kacheln
   const tiles = useMemo(() => {
     if (!view || !size.w || !src) return [];
-    const tz = Math.max(src.minZoom, Math.min(src.maxZoom, Math.round(view.z)));
+    const tz = Math.max(src.minZoom, Math.min(src.maxZoom, Math.round(view.z + TILE_Z_BIAS)));
     const scale = 2 ** (view.z - tz);
     const n = 2 ** tz;
     const tsz = TILE * scale;

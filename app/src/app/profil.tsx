@@ -9,23 +9,24 @@ import { getConsent, LOCATION_PURPOSE, requestOsPermission, setConsent } from '.
 import { useApp } from '../lib/store';
 import { secureStorageAvailable } from '../lib/secure';
 import { setThemeMode, THEME_MODE_LABELS, useThemeMode, type ThemeMode } from '../lib/theme';
-import { detailPackageInstalled, downloadDetailPackage } from '../lib/tiles';
+import { detailPackageInstalled, detailUpdateAvailable, downloadDetailPackage } from '../lib/tiles';
 
 export default function ProfileScreen() {
   const { boot, session, online, pending, logout, encryptionDetail } = useApp();
   const [consent, setC] = useState<boolean | null>(null);
   const [ask, setAsk] = useState(false);
   const [detail, setDetail] = useState<boolean | null>(null);
+  const [detailUpdate, setDetailUpdate] = useState(false);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   const [confirmLogout, setConfirmLogout] = useState(false);
   const themeMode = useThemeMode();
-  useEffect(() => { getConsent().then(setC); detailPackageInstalled().then(setDetail); }, []);
+  useEffect(() => { getConsent().then(setC); detailPackageInstalled().then(setDetail); detailUpdateAvailable().then(setDetailUpdate); }, []);
   if (!boot || !session) return <Screen back title="Profil"><Txt>Lade …</Txt></Screen>;
 
   async function download() {
     setBusy(true); setMsg(null);
-    try { await downloadDetailPackage(); setDetail(true); setMsg('Detailkarte gespeichert – sie ist ab sofort offline verfügbar.'); } catch (e: any) { setMsg(`Download fehlgeschlagen: ${e.message}`); } finally { setBusy(false); }
+    try { await downloadDetailPackage(); setDetail(true); setDetailUpdate(false); setMsg('Detailkarte gespeichert – sie ist ab sofort offline verfügbar.'); } catch (e: any) { setMsg(`Download fehlgeschlagen: ${e.message}`); } finally { setBusy(false); }
   }
   async function exportData() {
     const res = await apiFetch<Response>('/app/me/export', { token: session!.token, raw: true });
@@ -84,7 +85,12 @@ export default function ProfileScreen() {
       <Card>
         <Txt size={18} bold>Offline-Karte</Txt>
         <Txt>{`Kartenhintergrund: swisstopo LK25. Basis (Zoom 11–14) ist in der App enthalten.`}</Txt>
-        {Platform.OS === 'web' ? <Txt muted>Im Browser werden Kacheln online geladen.</Txt> : detail ? <Txt>Detailkarte (bis Zoom 16) ist gespeichert.</Txt> : (
+        {Platform.OS === 'web' ? <Txt muted>Im Browser werden Kacheln online geladen.</Txt> : detail ? (
+          <>
+            <Txt>Detailkarte (bis Zoom 16) ist gespeichert.</Txt>
+            {detailUpdate ? <Button label="Neue Detailkarte verfügbar – aktualisieren (ca. 35 MB, WLAN empfohlen)" onPress={download} busy={busy} disabled={!online} /> : null}
+          </>
+        ) : (
           <Button label="Detailkarte herunterladen (ca. 35 MB, WLAN empfohlen)" onPress={download} busy={busy} disabled={!online || !boot.basemap.variants.includes('detail')} />
         )}
       </Card>
