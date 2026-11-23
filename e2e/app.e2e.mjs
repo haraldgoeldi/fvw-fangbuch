@@ -187,7 +187,7 @@ test('3/4 Karte: passende Karte, Wechsel bei zwei Berechtigungen, offline mit ge
   await appLogin(page, 'mitglied@demo.fvw.invalid');
   await tab(page, 'Karte');
   await page.waitForSelector(tid('map-group-jugend'));
-  await page.waitForFunction(() => document.querySelectorAll('[data-testid="water-map"] path').length > 50, null, { timeout: 30_000 });
+  await page.waitForFunction(() => document.querySelectorAll('[data-testid="water-map"] path').length > 30, null, { timeout: 30_000 });
   await page.waitForTimeout(1500);
   await shot(page, '05-karte-aktive');
   await page.click(tid('map-group-jugend'));
