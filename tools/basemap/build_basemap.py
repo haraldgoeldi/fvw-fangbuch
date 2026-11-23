@@ -24,7 +24,7 @@ import numpy as np
 import rasterio
 from rasterio.enums import Resampling
 from rasterio.warp import reproject, transform_bounds
-from rasterio.transform import from_bounds
+from rasterio.transform import Affine, from_bounds
 from PIL import Image
 
 STAC = "https://data.geo.admin.ch/api/stac/v0.9/collections/{coll}/items?bbox={bbox}&limit=100"
@@ -53,6 +53,27 @@ def lonlat_to_tile(lon, lat, z):
     yt = int((1 - math.log(math.tan(lat_r) + 1 / math.cos(lat_r)) / math.pi) / 2 * n)
     return xt, yt
 
+
+
+_RGB_CACHE = {}
+
+
+def downsampled_rgb(src, lut, factor):
+    """Quelle (Palettenbild, 1.25 m) als RGB, um `factor` flächig gemittelt (Box-Filter)."""
+    key = (src.name, factor)
+    if key in _RGB_CACHE:
+        return _RGB_CACHE[key]
+    if (src.name, 1) not in _RGB_CACHE:
+        _RGB_CACHE[(src.name, 1)] = lut[src.read(1)].transpose(2, 0, 1)
+    full = _RGB_CACHE[(src.name, 1)]
+    if factor == 1:
+        return full
+    h, w = (full.shape[1] // factor) * factor, (full.shape[2] // factor) * factor
+    out = np.empty((3, h // factor, w // factor), dtype=np.uint8)
+    for b in range(3):
+        out[b] = full[b, :h, :w].reshape(h // factor, factor, w // factor, factor).mean(axis=(1, 3), dtype=np.float32).round().astype(np.uint8)
+    _RGB_CACHE[key] = out
+    return out
 
 def http_json(url):
     with urllib.request.urlopen(url, timeout=60) as r:
@@ -156,14 +177,15 @@ def main():
             # passende Übersichtsstufe wählen (Quelle 1.25 m, Mercator-Pixel am 47. Breitengrad ~ res*cos(lat))
             ground = res * math.cos(math.radians((bbox[1] + bbox[3]) / 2))
             factor = max(1, int(ground / 1.25))
-            oh, ow = max(1, src.height // factor), max(1, src.width // factor)
-            idx = src.read(1, out_shape=(oh, ow), resampling=Resampling.nearest)
-            s_rgb = lut[idx].transpose(2, 0, 1)
-            s_t = src.transform * src.transform.scale(src.width / ow, src.height / oh)
+            # Erst in Farbe umrechnen, dann flächig mitteln (statt jedes n-te Palettenpixel zu nehmen):
+            # sonst verschwinden feine Linien und Schrift wird unleserlich.
+            s_rgb = downsampled_rgb(src, lut, factor)
+            oh, ow = s_rgb.shape[1], s_rgb.shape[2]
+            s_t = src.transform * Affine.scale(factor, factor)
             for b in range(3):
                 band = np.zeros((h, w), dtype=np.uint8)
                 reproject(s_rgb[b], band, src_transform=s_t, src_crs=src.crs, dst_transform=dst_t, dst_crs="EPSG:3857",
-                          resampling=Resampling.bilinear if factor > 1 else Resampling.cubic, src_nodata=None, dst_nodata=0)
+                          resampling=Resampling.lanczos, src_nodata=None, dst_nodata=0)
                 if b == 0:
                     m = np.zeros((h, w), dtype=np.uint8)
                     reproject(np.ones((oh, ow), dtype=np.uint8), m, src_transform=s_t, src_crs=src.crs, dst_transform=dst_t,

@@ -2,6 +2,7 @@ import * as SQLite from 'expo-sqlite';
 import { Platform } from 'react-native';
 import { API_URL } from './config';
 import { bytesToBase64 } from './base64';
+import { kvGet, kvSet } from './db';
 
 /**
  * Offline-Kartenhintergrund: swisstopo LK25 (© Data: swisstopo) als MBTiles.
@@ -11,7 +12,9 @@ import { bytesToBase64 } from './base64';
  */
 export interface TileSource { minZoom: number; maxZoom: number; label: string; get(z: number, x: number, y: number): Promise<string | null> }
 
-const BASIS_FILE = 'lk25-basis.mbtiles';
+const DETAIL_SHA_KEY = 'basemap:detail:sha256';
+// Name mit Version: importDatabaseFromAssetAsync überschreibt eine vorhandene Datei nicht.
+const BASIS_FILE = 'lk25-basis-v2.mbtiles';
 const DETAIL_FILE = 'lk25-detail.mbtiles';
 let basisDb: Promise<SQLite.SQLiteDatabase> | null = null;
 let detailDb: Promise<SQLite.SQLiteDatabase | null> | null = null;
@@ -81,14 +84,36 @@ export async function detailPackageInstalled(): Promise<boolean> {
   return (await openDetail()) !== null;
 }
 
-/** Detail-Kartenpaket herunterladen (WLAN empfohlen, ca. 35 MB). */
+async function serverDetailSha(): Promise<string | null> {
+  try {
+    const r = await fetch(`${API_URL}/api/basemap/detail/manifest`);
+    return r.ok ? ((await r.json()).sha256 ?? null) : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Gibt es auf dem Server eine neuere (z. B. schärfere) Detailkarte als die gespeicherte? */
+export async function detailUpdateAvailable(): Promise<boolean> {
+  if (Platform.OS === 'web' || !(await detailPackageInstalled())) return false;
+  const server = await serverDetailSha();
+  return !!server && server !== (await kvGet<string>(DETAIL_SHA_KEY));
+}
+
+/** Detail-Kartenpaket herunterladen bzw. ersetzen (WLAN empfohlen, ca. 35 MB). */
 export async function downloadDetailPackage(): Promise<void> {
   const { File, Directory } = await import('expo-file-system');
+  const sha = await serverDetailSha();
   const dir = new Directory(SQLite.defaultDatabaseDirectory);
   if (!dir.exists) dir.create();
+  const old = detailDb ? await detailDb : null;
+  detailDb = null;
+  cache.clear();
+  if (old) await old.closeAsync().catch(() => undefined);
   const target = new File(dir, DETAIL_FILE);
   if (target.exists) target.delete();
-  await File.downloadFileAsync(`${API_URL}/api/basemap/detail/file`, target, { idempotent: true });
+  await File.downloadFileAsync(`${API_URL}/api/basemap/detail/file${sha ? `?v=${sha.slice(0, 12)}` : ''}`, target, { idempotent: true });
+  if (sha) await kvSet(DETAIL_SHA_KEY, sha);
   detailDb = null;
   cache.clear();
 }
