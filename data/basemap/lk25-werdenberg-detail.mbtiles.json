@@ -11,12 +11,12 @@
   "maxzoom": "16",
   "fvw_full_upto_zoom": "15",
   "fvw_detail_buffer_m": "600",
-  "fvw_created": "2026-11-15T17:15:46+00:00",
+  "fvw_created": "2026-11-23T21:50:16+00:00",
   "fvw_sources": "[{\"sheet\": \"1115\", \"year\": \"2022\", \"item\": \"swiss-map-raster25_2022_1115\", \"href\": \"https://data.geo.admin.ch/ch.swisstopo.pixelkarte-farbe-pk25.noscale/swiss-map-raster25_2022_1115/swiss-map-raster25_2022_1115_komb_1.25_2056.tif\", \"sha256\": \"cfb96e43f4b83998cb45ba1d395e70a018c95c8f631f0c6a0e1ca7a24c130149\"}, {\"sheet\": \"1116\", \"year\": \"2022\", \"item\": \"swiss-map-raster25_2022_1116\", \"href\": \"https://data.geo.admin.ch/ch.swisstopo.pixelkarte-farbe-pk25.noscale/swiss-map-raster25_2022_1116/swiss-map-raster25_2022_1116_komb_1.25_2056.tif\", \"sha256\": \"aa6dd221a70d01f331924c71f29635a34387d0dd4a20078ecddc38d0ef93632e\"}, {\"sheet\": \"1135\", \"year\": \"2022\", \"item\": \"swiss-map-raster25_2022_1135\", \"href\": \"https://data.geo.admin.ch/ch.swisstopo.pixelkarte-farbe-pk25.noscale/swiss-map-raster25_2022_1135/swiss-map-raster25_2022_1135_komb_1.25_2056.tif\", \"sha256\": \"b5091d23982fedcb67e3798801cef45e69e1f12bd0f28ef4c35274d49048b57a\"}, {\"sheet\": \"1136\", \"year\": \"2022\", \"item\": \"swiss-map-raster25_2022_1136\", \"href\": \"https://data.geo.admin.ch/ch.swisstopo.pixelkarte-farbe-pk25.noscale/swiss-map-raster25_2022_1136/swiss-map-raster25_2022_1136_komb_1.25_2056.tif\", \"sha256\": \"4649fe05720b9acc7024549abc3080eb7b3a52e4dc047920e477464b70b4adc8\"}, {\"sheet\": \"1155\", \"year\": \"2022\", \"item\": \"swiss-map-raster25_2022_1155\", \"href\": \"https://data.geo.admin.ch/ch.swisstopo.pixelkarte-farbe-pk25.noscale/swiss-map-raster25_2022_1155/swiss-map-raster25_2022_1155_komb_1.25_2056.tif\", \"sha256\": \"893714d3c593d9737774c22d8ca6211c9a5f3bed5ac058eca7dd24bd7e76b081\"}, {\"sheet\": \"1156\", \"year\": \"2022\", \"item\": \"swiss-map-raster25_2022_1156\", \"href\": \"https://data.geo.admin.ch/ch.swisstopo.pixelkarte-farbe-pk25.noscale/swiss-map-raster25_2022_1156/swiss-map-raster25_2022_1156_komb_1.25_2056.tif\", \"sha256\": \"3d6680ae9668818aeaed3c423b5a879d2345df20cddb9b030b836a241186afe8\"}]",
   "fvw_license_note": "BGDI-Nutzungsbedingungen (geo.admin.ch, 9.12.2021): kostenlos, Quellenangabe Pflicht, Offline-Bezug über Downloadservice. Datensatzbedingungen: swisstopo OGD (https://www.swisstopo.admin.ch/ogd-conditions) – vor Produktivbetrieb durch den Verein zu bestätigen.",
   "fvw_tiles_per_zoom": "{\"11\": 6, \"12\": 15, \"13\": 40, \"14\": 126, \"15\": 504, \"16\": 999}",
   "file": "lk25-werdenberg-detail.mbtiles",
-  "sha256": "e952632e465e38c785b6d25675fe6cdbd94997b6ee92662b02c8c108f06ad9db",
+  "sha256": "10e3859dc5f3b5e57c90a36e0e487855b0b94d5108df85014415881f396cb133",
   "bytes": 34971648,
   "tiles": 1690
 }
