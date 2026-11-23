@@ -1,4 +1,6 @@
+import { useSyncExternalStore } from 'react';
 import { useColorScheme } from 'react-native';
+import { secureGet, secureSet } from './secure';
 
 /**
  * Farben: ruhige Wasser-/Naturtöne mit hohem Kontrast (Sonne, nasse Hände).
@@ -22,8 +24,38 @@ const dark: typeof light = {
 };
 export type Colors = typeof light;
 
+/**
+ * Darstellung: Standard ist hell (Wunsch Verein, 23.11.2026), unabhängig vom Handy-Design.
+ * Dunkel oder «wie Gerät» kann unter Mehr → Profil & Einstellungen gewählt werden.
+ */
+export type ThemeMode = 'light' | 'dark' | 'system';
+export const THEME_MODE_LABELS: Record<ThemeMode, string> = { light: 'Hell', dark: 'Dunkel', system: 'Wie Gerät' };
+const THEME_KEY = 'theme_mode';
+let mode: ThemeMode = 'light';
+const listeners = new Set<() => void>();
+const subscribe = (l: () => void) => { listeners.add(l); return () => { listeners.delete(l); }; };
+
+secureGet(THEME_KEY).then((v) => {
+  if (v === 'light' || v === 'dark' || v === 'system') { mode = v; listeners.forEach((l) => l()); }
+}).catch(() => { /* Standard hell behalten */ });
+
+export function useThemeMode(): ThemeMode {
+  return useSyncExternalStore(subscribe, () => mode, () => mode);
+}
+export async function setThemeMode(next: ThemeMode): Promise<void> {
+  mode = next;
+  listeners.forEach((l) => l());
+  try { await secureSet(THEME_KEY, next); } catch { /* nur für diese Sitzung */ }
+}
+
+export function useIsDark(): boolean {
+  const m = useThemeMode();
+  const system = useColorScheme();
+  return m === 'dark' || (m === 'system' && system === 'dark');
+}
+
 export function useColors(): Colors {
-  return useColorScheme() === 'dark' ? dark : light;
+  return useIsDark() ? dark : light;
 }
 
 export const space = { xs: 4, s: 8, m: 12, l: 16, xl: 24 };

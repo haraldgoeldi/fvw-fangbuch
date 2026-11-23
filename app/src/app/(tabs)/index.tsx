@@ -7,7 +7,7 @@ import { listTours } from '../../lib/local';
 import { useApp } from '../../lib/store';
 
 export default function Dashboard() {
-  const { boot, session, online, pending, lastSync, maps, activeGroup, mapUpdatedNotice, dismissMapNotice, dataVersion, foreign } = useApp();
+  const { boot, session, online, pending, mapUpdatedNotice, dismissMapNotice, dataVersion, foreign } = useApp();
   const [tours, setTours] = useState<Tour[]>([]);
   const [news, setNews] = useState<any[]>([]);
   const [now, setNow] = useState(Date.now());
@@ -28,7 +28,7 @@ export default function Dashboard() {
   const today = zurichDate(new Date());
   const valid = boot.permits.filter((p) => p.currentlyValid);
   const soon = valid.filter((p) => (Date.parse(p.validTo) - Date.now()) / 86400_000 < 14 && p.typeKind !== 'tag');
-  const map = activeGroup ? maps[activeGroup] : null;
+  const latestNews = news.filter((n) => !n.expired).slice(0, 2);
   const roleLabel = boot.me.kind === 'guest' ? 'Gast (Tageskarte)' : boot.me.roles.includes('admin') ? 'Vorstand/Admin' : boot.me.roles.includes('warden') ? 'Aufseher' : 'Mitglied';
 
   return (
@@ -71,18 +71,10 @@ export default function Dashboard() {
         </Banner>
       )}
 
-      <H2>Status</H2>
-      <Card>
-        <Txt>{`Letzte Synchronisation: ${lastSync ? formatDateTimeCH(lastSync) : 'noch keine'}`}</Txt>
-        <Txt>{`Kartenstand: ${map ? (map._source === 'bundled' ? 'mitgeliefert (noch nicht vom Server geladen)' : map.activatedAt ? `Gewässerkarte vom ${formatDateCH(map.activatedAt)}` : 'unbekannt') : 'keine Karte'}${map && !map.verifiedBase ? ' · noch nicht als geprüfte Basis bestätigt' : ''}`}</Txt>
-        <Button label="Details, offene Punkte, Integrationen" kind="ghost" onPress={() => router.push('/status')} />
-      </Card>
-
-      <H2>Neuigkeiten</H2>
-      {news.filter((n) => !n.expired).slice(0, 2).map((n) => (
+      {latestNews.length ? <H2>Neuigkeiten</H2> : null}
+      {latestNews.map((n) => (
         <Card key={n.id}><Txt bold>{n.title}</Txt><Txt muted size={14}>{formatDateCH(n.publishedAt)}</Txt><Txt numberOfLines={3}>{n.body}</Txt></Card>
       ))}
-      <Button label="Alle News und Gewässerzustand" kind="ghost" onPress={() => router.push('/news')} />
       <Txt muted size={13}>{`Heute: ${formatDateCH(today)}`}</Txt>
     </Screen>
   );

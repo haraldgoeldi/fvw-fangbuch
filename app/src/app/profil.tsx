@@ -2,12 +2,13 @@ import { formatDateCH } from '@fvw/shared';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Platform } from 'react-native';
-import { Banner, Button, Card, Row, Screen, Txt } from '../components/ui';
+import { Banner, Button, Card, ChoiceGrid, Row, Screen, Txt } from '../components/ui';
 import { apiFetch } from '../lib/api';
 import { APP_VERSION } from '../lib/config';
 import { getConsent, LOCATION_PURPOSE, requestOsPermission, setConsent } from '../lib/location';
 import { useApp } from '../lib/store';
 import { secureStorageAvailable } from '../lib/secure';
+import { setThemeMode, THEME_MODE_LABELS, useThemeMode, type ThemeMode } from '../lib/theme';
 import { detailPackageInstalled, downloadDetailPackage } from '../lib/tiles';
 
 export default function ProfileScreen() {
@@ -18,6 +19,7 @@ export default function ProfileScreen() {
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   const [confirmLogout, setConfirmLogout] = useState(false);
+  const themeMode = useThemeMode();
   useEffect(() => { getConsent().then(setC); detailPackageInstalled().then(setDetail); }, []);
   if (!boot || !session) return <Screen back title="Profil"><Txt>Lade …</Txt></Screen>;
 
@@ -70,6 +72,13 @@ export default function ProfileScreen() {
           </>
         ) : consent ? <Button label="Standort ausschalten" onPress={async () => { await setConsent(false); setC(false); }} /> : <Button label="Standort einschalten" onPress={() => setAsk(true)} />}
         <Txt muted size={14}>Live-Standort mit ausgewählten Personen teilen ist als spätere Funktion vorgesehen und derzeit deaktiviert.</Txt>
+      </Card>
+
+      <Card>
+        <Txt size={18} bold>Darstellung</Txt>
+        <ChoiceGrid<ThemeMode> label="Farbschema der App" value={themeMode} onChange={setThemeMode} testIDPrefix="theme"
+          options={(['light', 'dark', 'system'] as ThemeMode[]).map((v) => ({ value: v, label: THEME_MODE_LABELS[v] }))} />
+        <Txt muted size={14}>Standard ist hell. «Wie Gerät» folgt der Einstellung des Handys.</Txt>
       </Card>
 
       <Card>
