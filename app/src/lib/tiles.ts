@@ -23,6 +23,15 @@ export interface TileSource {
 export type BasemapKind = 'google_roadmap' | 'google_satellite' | 'swisstopo';
 export const BASEMAP_LABELS: Record<BasemapKind, string> = { google_roadmap: 'Google Karte', google_satellite: 'Google Satellit', swisstopo: 'swisstopo' };
 
+/**
+ * SQLite liefert auf Android einen nackten Pfad (/data/user/0/…/SQLite). Die neue
+ * expo-file-system-API braucht eine absolute URI, sonst «URI is not absolute».
+ */
+function dbDirUri() {
+  const d = SQLite.defaultDatabaseDirectory;
+  return /^[a-z]+:\/\//i.test(d) ? d : `file://${d.startsWith('/') ? '' : '/'}${d}`;
+}
+
 const DETAIL_SHA_KEY = 'basemap:detail:sha256';
 // Name mit Version: importDatabaseFromAssetAsync überschreibt eine vorhandene Datei nicht.
 const BASIS_FILE = 'lk25-basis-v2.mbtiles';
@@ -51,7 +60,7 @@ async function openDetail() {
     detailDb = (async () => {
       try {
         const { File, Directory } = await import('expo-file-system');
-        const f = new File(new Directory(SQLite.defaultDatabaseDirectory), DETAIL_FILE);
+        const f = new File(new Directory(dbDirUri()), DETAIL_FILE);
         if (!f.exists) return null;
         return await SQLite.openDatabaseAsync(DETAIL_FILE);
       } catch {
@@ -115,7 +124,7 @@ export async function detailUpdateAvailable(): Promise<boolean> {
 export async function downloadDetailPackage(): Promise<void> {
   const { File, Directory } = await import('expo-file-system');
   const sha = await serverDetailSha();
-  const dir = new Directory(SQLite.defaultDatabaseDirectory);
+  const dir = new Directory(dbDirUri());
   if (!dir.exists) dir.create();
   const old = detailDb ? await detailDb : null;
   detailDb = null;
