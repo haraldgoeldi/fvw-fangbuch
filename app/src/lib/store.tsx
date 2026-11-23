@@ -21,7 +21,7 @@ export interface Bootstrap {
   species: string[];
   waters: { key: string; name: string; groups: MapGroup[]; codes: number[]; hasClosedSection: boolean; status: 'aus_karte' | 'bestaetigt' | 'ungeprueft' }[];
   layerRules: Record<string, { label: string; meaning: string; status: string; fishingAllowed: boolean | null }>;
-  settings: { permitCheck: 'hinweis' | 'sperre'; locationToleranceM: number; liveLocation: boolean; guestGraceDays: number | null };
+  settings: { permitCheck: 'hinweis' | 'sperre'; locationToleranceM: number; liveLocation: boolean; guestGraceDays: number | null; dayPassShopUrl?: string | null };
   openReports: { permitId: string; name: string; validFrom: string; validTo: string }[];
   warden: { publicKey: string; revoked: string[]; confirmationMethod: string; violationRequired: string[] } | null;
   integrations: { key: string; label: string; mode: string; detail: string; last_success_at: string | null; last_error: string | null }[];

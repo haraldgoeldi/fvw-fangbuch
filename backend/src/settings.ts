@@ -34,8 +34,12 @@ export const SETTINGS: SettingDef[] = [
   { key: 'recipients.incident_report', group: 'Empfänger', label: 'Empfänger Meldungen (Verschmutzung, tote Fische)', description: 'Adresse(n) für Meldungen (Komma-getrennt).', type: 'email', default: 'harald.goeldi@gmail.com' },
   { key: 'recipients.incident_delivery', group: 'Empfänger', label: 'Versandart Meldungen', description: '«E-Mail» = an die Empfängeradresse (im Entwurfsmodus nur als Entwurf); «nur Admin» = nur im Adminbereich sichtbar.', type: 'enum', options: ['email', 'nur_admin'], default: 'email' },
   { key: 'recipients.admin_alerts', group: 'Empfänger', label: 'Empfänger Admin-Hinweise', description: 'Adresse für Hinweise wie «Gewässerkarte geändert» oder Integrationsfehler. Nicht festgelegt = nur Anzeige im Adminbereich.', type: 'email', default: null },
-  { key: 'eventfrog.event_ids', group: 'Tageskarten', label: 'Eventfrog-Event-IDs der Tageskarten', description: 'Nummern der Eventfrog-Events, über die Tageskarten verkauft werden (Komma-getrennt). Die Nummer steht in Eventfrog in der Adresse des Events bzw. in den Event-Einstellungen. Leer = kein Abgleich.', type: 'string[]', default: [] },
-  { key: 'eventfrog.date_field', group: 'Tageskarten', label: 'Personalisierungsfeld «Fischtag»', description: 'Titel des Eventfrog-Personalisierungsfelds, in dem Käufer den Fischtag wählen (z. B. «Datum»). Nicht festgelegt = die Tageskarte gilt am Kaufdatum.', type: 'string', default: null },
+  { key: 'eventfrog.group_ids', group: 'Tageskarten', label: 'Eventfrog-Gruppe der Tageskarten', description: 'Nummer der Eventfrog-Gruppe, in der pro Tag ein Tageskarten-Event liegt (Komma-getrennt, falls mehrere). Die App findet die Events der Gruppe selbst. Die Nummer steht in Eventfrog in der Adresse der Gruppe. Startwert: Gruppe «Tageskarten» des FVW.', type: 'string[]', default: ['7530708740393202205'] },
+  { key: 'eventfrog.event_ids', group: 'Tageskarten', label: 'Zusätzliche Eventfrog-Event-IDs', description: 'Einzelne Eventfrog-Events ausserhalb der Gruppe, über die ebenfalls Tageskarten verkauft werden (Komma-getrennt). Normalerweise leer.', type: 'string[]', default: [] },
+  { key: 'eventfrog.date_field', group: 'Tageskarten', label: 'Personalisierungsfeld «Fischtag»', description: 'Nur nötig, wenn Käufer den Fischtag in einem Eventfrog-Personalisierungsfeld wählen (z. B. «Datum»). Nicht festgelegt = die Tageskarte gilt am Datum des Eventfrog-Events.', type: 'string', default: null },
+  { key: 'eventfrog.shop_url', group: 'Tageskarten', label: 'Link zum Tageskarten-Shop', description: 'Kurz-URL der Eventfrog-Gruppe (Eventfrog → Gruppe bearbeiten → «Kurz-URL, Einbetten»). Die App öffnet diesen Link beim Knopf «Tageskarte kaufen». Nicht festgelegt = kein Kauf-Knopf in der App.', type: 'string', default: null },
+  { key: 'eventfrog.sync_days_ahead', group: 'Tageskarten', label: 'Abgleich: Tage im Voraus', description: 'Der Abgleich alle 30 Minuten prüft die Tageskarten-Events von gestern bis so viele Tage im Voraus. Einmal pro Nacht werden alle künftigen Events geprüft. Technischer Parameter wegen der Eventfrog-Limite (2000 Anfragen pro Tag).', type: 'int', default: 14, technical: true },
+  { key: 'guest.ticket_login', group: 'Gäste', label: 'Anmeldung mit Ticketnummer', description: '«E-Mail-Code»: Nach Eingabe oder Scan der Ticketnummer kommt ein Code an die E-Mail der Bestellung. «Ticket genügt»: Wer die Ticketnummer hat, ist sofort angemeldet, wie beim Papierticket.', type: 'enum', options: ['email_code', 'ticket_genuegt'], default: 'email_code' },
   { key: 'reminders.enabled', group: 'Erinnerungen', label: 'Erinnerungen an offene Fangmeldungen', description: 'Push am Abend des Fischtags und E-Mail am Folgetag (optional, AD §5).', type: 'bool', default: false },
   { key: 'reminders.evening_hour', group: 'Erinnerungen', label: 'Uhrzeit Abend-Erinnerung', description: 'Stunde (0–23) für die Push-Erinnerung am Fischtag.', type: 'int', default: null },
   { key: 'reminders.season_end_days', group: 'Erinnerungen', label: 'Erinnerung vor Saisonende (Tage)', description: 'Tage vor Saisonende für die Erinnerung an Mitglieder.', type: 'int', default: null, decisionRef: 'O26' },
@@ -78,9 +82,11 @@ export function validateSetting(key: string, value: unknown): string | null {
       const parts = value.split(',').map((s) => s.trim()).filter(Boolean);
       return parts.length && parts.every((p) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(p)) ? null : 'Ungültige E-Mail-Adresse';
     }
-    case 'string': return typeof value === 'string' ? null : 'Text erwartet';
+    case 'string':
+      if (key === 'eventfrog.shop_url') return typeof value === 'string' && /^https:\/\/\S+$/.test(value.trim()) ? null : 'Link mit https:// erwartet';
+      return typeof value === 'string' ? null : 'Text erwartet';
     case 'string[]':
-      if (key === 'eventfrog.event_ids') return Array.isArray(value) && value.every((v) => typeof v === 'string' && /^\d+$/.test(v)) ? null : 'Nur Ziffern, mehrere durch Komma getrennt';
+      if (key === 'eventfrog.event_ids' || key === 'eventfrog.group_ids') return Array.isArray(value) && value.every((v) => typeof v === 'string' && /^\d+$/.test(v)) ? null : 'Nur Ziffern, mehrere durch Komma getrennt';
       return Array.isArray(value) && value.every((v) => typeof v === 'string' && (!d.options || d.options.includes(v))) ? null : 'Liste erwartet';
     default: return null;
   }

@@ -11,7 +11,7 @@ import type { AppContext } from '../context';
 import { one, q } from '../db';
 import { INTEGRATION_LABELS } from '../integrations/status';
 import { getSetting } from '../settings';
-import { emailForTicket, loginWithAccessCode, requestLoginCode, verifyLoginCode } from '../services/accounts';
+import { emailForTicket, emailForTicketLive, liveGuestLookup, loginWithAccessCode, loginWithTicket, requestLoginCode, verifyLoginCode } from '../services/accounts';
 import { speciesNames, watersFor } from '../services/catalog';
 import { eventIcs, listEvents, listNews, newsInput, saveNews } from '../services/content';
 import { layerRules, mapBundle } from '../services/maps';
@@ -35,15 +35,17 @@ export function publicRoutes(ctx: AppContext) {
     await q(ctx.db, 'SELECT 1');
     return c.json({ ok: true, time: ctx.now().toISOString() });
   });
-  r.get('/public/config', (c) => c.json({
+  r.get('/public/config', async (c) => c.json({
     demoMode: ctx.cfg.DEMO_MODE, credentialPublicKey: ctx.signer.publicKeyB64, credentialKeyEphemeral: ctx.signer.ephemeral,
     basemapAttribution: '© Data: swisstopo', environment: ctx.cfg.NODE_ENV,
+    dayPassShopUrl: await getSetting<string | null>(ctx.db, 'eventfrog.shop_url'),
+    ticketLogin: await getSetting<string>(ctx.db, 'guest.ticket_login'),
   }));
   // ---------- Anmeldung (Einmal-Code über Better Auth)
   r.post('/auth/request-code', async (c) => {
     const body = z.object({ email: z.string().trim().email().optional(), ticketNo: z.string().trim().min(3).max(60).optional() }).parse(await c.req.json());
     let email = body.email ?? null;
-    if (!email && body.ticketNo) email = await emailForTicket(ctx, body.ticketNo);
+    if (!email && body.ticketNo) email = await emailForTicketLive(ctx, body.ticketNo);
     if (email) await requestLoginCode(ctx, email);
     // Einheitliche Antwort: verrät nicht, ob eine E-Mail registriert ist (Datenschutz)
     return c.json({
@@ -59,6 +61,10 @@ export function publicRoutes(ctx: AppContext) {
     if (!email) throw new HttpError(400, 'invalid_code', 'Der Code ist ungültig oder abgelaufen.');
     const { token } = await verifyLoginCode(ctx, email, body.code, body.device ?? null);
     return c.json({ token, sessionDays: ctx.cfg.SESSION_DAYS });
+  });
+  r.post('/auth/ticket-login', async (c) => {
+    const body = z.object({ ticketNo: z.string().trim().min(3).max(60), device: z.string().max(100).optional() }).parse(await c.req.json());
+    return c.json({ ...(await loginWithTicket(ctx, body.ticketNo, body.device ?? null)), sessionDays: ctx.cfg.SESSION_DAYS });
   });
   r.post('/auth/access-code', async (c) => {
     const body = z.object({ code: z.string().trim().min(6).max(20) }).parse(await c.req.json());
@@ -132,6 +138,7 @@ export function appRoutes(ctx: AppContext) {
         locationToleranceM: await getSetting(ctx.db, 'location.tolerance_m'),
         liveLocation: await getSetting(ctx.db, 'features.live_location'),
         guestGraceDays: await getSetting(ctx.db, 'guest.grace_days'),
+        dayPassShopUrl: await getSetting(ctx.db, 'eventfrog.shop_url'),
       },
       openReports: await openReportsFor(ctx, p.personId),
       warden,
@@ -139,6 +146,13 @@ export function appRoutes(ctx: AppContext) {
       decisions,
       basemap: { attribution: '© Data: swisstopo', variants: Object.keys(basemapFiles).filter((v) => existsSync(resolve(BASEMAP_DIR, basemapFiles[v]))) },
     });
+  });
+
+  /** Nach einem Kauf im Eventfrog-Shop: Tageskarten sofort bei Eventfrog nachschlagen (gedrosselt). */
+  r.post('/permits/refresh', async (c) => {
+    const p = principal(c);
+    const checked = await liveGuestLookup(ctx);
+    return c.json({ checked, permits: await permitsOf(ctx, p.personId, p.displayName) });
   });
 
   r.get('/maps/:group', async (c) => {
