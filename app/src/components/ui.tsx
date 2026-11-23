@@ -50,13 +50,27 @@ export function Screen({ title, children, scroll = true, right, testID, back }: 
     <SafeAreaView edges={['top']} style={{ flex: 1, backgroundColor: c.bg }} testID={testID}>
       <View style={[styles.header, { borderBottomColor: c.line, backgroundColor: c.surface }]}>
         {back ? (
-          <Pressable accessibilityRole="button" accessibilityLabel="Zurück" onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))} style={{ minWidth: 48, minHeight: 48, alignItems: 'center', justifyContent: 'center' }} testID="nav-back">
-            <Text style={{ fontSize: 28, color: c.water, fontWeight: '800' }}>‹</Text>
-          </Pressable>
-        ) : <ClubLogo size={44} />}
-        <Text style={{ flex: 1, color: c.ink, fontSize: 21, fontWeight: '800' }} numberOfLines={1} accessibilityRole="header">{title}</Text>
-        {right}
-        <SyncPill />
+          <>
+            <Pressable accessibilityRole="button" accessibilityLabel="Zurück" onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))} style={{ minWidth: 48, minHeight: 48, alignItems: 'center', justifyContent: 'center' }} testID="nav-back">
+              <Text style={{ fontSize: 28, color: c.water, fontWeight: '800' }}>‹</Text>
+            </Pressable>
+            <Text style={{ flex: 1, color: c.ink, fontSize: 21, fontWeight: '800' }} numberOfLines={1} accessibilityRole="header">{title}</Text>
+            {right}
+            <SyncPill />
+          </>
+        ) : (
+          <>
+            {/* Hauptseiten: grosses Vereinslogo (88 pt, doppelt so gross wie zuvor); Titel und Status daneben untereinander. */}
+            <ClubLogo size={88} />
+            <View style={{ flex: 1, gap: space.xs, alignItems: 'flex-start' }}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.s, alignSelf: 'stretch' }}>
+                <Text style={{ flex: 1, color: c.ink, fontSize: 21, fontWeight: '800' }} numberOfLines={1} accessibilityRole="header">{title}</Text>
+                {right}
+              </View>
+              <SyncPill />
+            </View>
+          </>
+        )}
       </View>
       <AuthBanner />
       {scroll ? <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{ flexGrow: 1 }}>{body}</ScrollView> : <View style={{ flex: 1 }}>{children}</View>}

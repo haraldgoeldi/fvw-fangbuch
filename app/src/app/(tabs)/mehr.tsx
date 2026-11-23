@@ -12,7 +12,7 @@ export default function More() {
     ['Kontrolle (Aufseher)', '/kontrolle', can('controls.write')],
     ['Adminbereich', '/admin', can('admin.access')],
     ['Profil & Einstellungen', '/profil', true],
-    ['Synchronisation, offene Punkte, Integrationen', '/status', true],
+    ['Status: Synchronisation, Kartenstand, Integrationen', '/status', true],
   ];
   return (
     <Screen title="Mehr" testID="screen-more">

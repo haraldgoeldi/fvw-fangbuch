@@ -5,19 +5,20 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { View } from 'react-native';
 import { Banner, Button, Loading } from '../components/ui';
 import { AppProvider, useApp } from '../lib/store';
-import { useColors } from '../lib/theme';
+import { useColors, useIsDark } from '../lib/theme';
 
 function Gate() {
   const { ready, session, startError, retryStart } = useApp();
   const segments = useSegments();
   const c = useColors();
+  const isDark = useIsDark();
   if (startError) return <View style={{ flex: 1, padding: 24, justifyContent: 'center', gap: 16, backgroundColor: c.bg }}><Banner kind="error" title="App konnte nicht starten">{`${startError}. Ihre gespeicherten Daten bleiben erhalten.`}</Banner><Button label="Erneut versuchen" kind="primary" onPress={retryStart} /></View>;
   if (!ready) return <Loading text="Fangbuch wird geöffnet …" />;
   const onLogin = segments[0] === 'login';
   if (!session && !onLogin) return <Redirect href="/login" />;
   return (
     <>
-      <StatusBar style="auto" />
+      <StatusBar style={isDark ? 'light' : 'dark'} />
       <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: c.bg } }}>
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="login" />
