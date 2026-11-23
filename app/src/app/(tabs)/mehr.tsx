@@ -6,7 +6,7 @@ export default function More() {
   const { can, boot } = useApp();
   const items: [string, string, boolean][] = [
     ['Patent / Tageskarte vorweisen', '/patent', true],
-    ['News & Gewässerzustand', '/news', true],
+    ['Neuigkeiten & Gewässerzustand', '/news', true],
     ['Termine & Aktivitäten', '/termine', true],
     ['Meldung: Verschmutzung / tote Fische', '/meldung', can('reports.write')],
     ['Kontrolle (Aufseher)', '/kontrolle', can('controls.write')],

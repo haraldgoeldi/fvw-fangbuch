@@ -94,19 +94,41 @@ function StartTour({ sectionsByGroup, activeGroup, onStarted }: { sectionsByGrou
     setShowNew(false); setNewWater('');
   }
 
+  function pressStart() {
+    if (!selected) { setErr('Bitte zuerst unten das Gewässer wählen, an dem Sie fischen.'); return; }
+    setErr(null);
+    start();
+  }
+
   return (
     <>
-      <Txt size={20} bold>1. Gewässer wählen</Txt>
+      {/* «Tour starten» immer sichtbar, wie auf der Startseite (Wunsch Verein, 23.11.2026). */}
+      <Button label={selected ? `Tour starten: ${selected.name}` : 'Tour starten'} kind="success" big icon="▶" onPress={pressStart} busy={busy} disabled={blocked} testID="tour-start" />
+      {err ? <Banner kind="warn">{err}</Banner> : null}
+      {selected ? (
+        <>
+          {selected.status === 'ungeprueft' ? <Banner kind="info">Neu erfasstes Gewässer – ungeprüft, bis der Vorstand es bestätigt.</Banner> : null}
+          {selected.hasClosedSection ? <Banner kind="error" title="Achtung: gesperrte Abschnitte">Teile dieses Gewässers sind gesperrt. Bitte vor dem Fischen auf der Karte prüfen.</Banner> : null}
+          {permitMissing ? (
+            <Banner kind={blocked ? 'error' : 'warn'} title={blocked ? 'Start nicht möglich' : 'Hinweis'}>
+              {`Für dieses Gewässer liegt kein passendes gültiges Patent bzw. keine Tageskarte vor.${blocked ? '' : ' Sie können trotzdem starten (Einstellung des Vereins: nur Hinweis).'}`}
+            </Banner>
+          ) : null}
+        </>
+      ) : null}
+      <Txt muted size={14}>Datum und Uhrzeit werden automatisch erfasst. Der Standort wird nicht gespeichert – nur das gewählte Gewässer.</Txt>
+
+      <Txt size={20} bold>Gewässer wählen</Txt>
       <Card>
         <Button label={locating ? 'Standort wird bestimmt …' : 'Gewässer anhand meines Standorts vorschlagen'} onPress={locate} busy={locating} />
         {suggestions ? (suggestions.length ? suggestions.map((s) => {
           const w = waters.find((x) => x.key === s.waterKey);
-          return <Button key={s.waterKey} label={`${s.name} (ca. ${s.distanceM} m)${s.closed ? ' – Teile gesperrt' : ''}`} kind={selected?.key === s.waterKey ? 'primary' : 'secondary'} onPress={() => w && setSelected(w)} />;
+          return <Button key={s.waterKey} label={`${s.name} (ca. ${s.distanceM} m)${s.closed ? ' – Teile gesperrt' : ''}`} kind={selected?.key === s.waterKey ? 'primary' : 'secondary'} onPress={() => { if (w) { setSelected(w); setErr(null); } }} />;
         }) : <Txt muted>Kein Gewässer dieser Karte in der Nähe (1,5 km).</Txt>) : null}
         {suggestions ? <Txt muted size={14}>Vorschlag aus GPS – bitte prüfen. GPS ist nur eine ungefähre Orientierung.</Txt> : null}
         <Field label="Gewässer suchen" value={query} onChangeText={setQuery} placeholder="z. B. Binnenkanal" testID="water-search" autoCorrect={false} />
         {filtered.map((w) => (
-          <Button key={w.key} testID={`water-${w.key}`} label={`${w.name}${w.status === 'ungeprueft' ? ' (ungeprüft)' : ''}`} kind={selected?.key === w.key ? 'primary' : 'secondary'} onPress={() => setSelected(w)} />
+          <Button key={w.key} testID={`water-${w.key}`} label={`${w.name}${w.status === 'ungeprueft' ? ' (ungeprüft)' : ''}`} kind={selected?.key === w.key ? 'primary' : 'secondary'} onPress={() => { setSelected(w); setErr(null); }} />
         ))}
         {!showNew ? <Button label="Gewässer fehlt in der Liste?" kind="ghost" onPress={() => setShowNew(true)} /> : (
           <View style={{ gap: 8 }}>
@@ -115,21 +137,6 @@ function StartTour({ sectionsByGroup, activeGroup, onStarted }: { sectionsByGrou
           </View>
         )}
       </Card>
-      {err ? <Banner kind="warn">{err}</Banner> : null}
-      {selected ? (
-        <>
-          <Txt size={20} bold>{`2. Start am Gewässer «${selected.name}»`}</Txt>
-          {selected.status === 'ungeprueft' ? <Banner kind="info">Neu erfasstes Gewässer – ungeprüft, bis der Vorstand es bestätigt.</Banner> : null}
-          {selected.hasClosedSection ? <Banner kind="error" title="Achtung: gesperrte Abschnitte">Teile dieses Gewässers sind gesperrt. Bitte vor dem Fischen auf der Karte prüfen.</Banner> : null}
-          {permitMissing ? (
-            <Banner kind={blocked ? 'error' : 'warn'} title={blocked ? 'Start nicht möglich' : 'Hinweis'}>
-              {`Für dieses Gewässer liegt kein passendes gültiges Patent bzw. keine Tageskarte vor.${blocked ? '' : ' Sie können trotzdem starten (Einstellung des Vereins: nur Hinweis).'}`}
-            </Banner>
-          ) : null}
-          <Button label="Start" kind="success" big icon="▶" onPress={start} busy={busy} disabled={blocked} testID="tour-start" />
-          <Txt muted size={14}>Datum und Uhrzeit werden automatisch erfasst. Der Standort wird nicht gespeichert – nur das gewählte Gewässer.</Txt>
-        </>
-      ) : null}
     </>
   );
 }
