@@ -4,9 +4,10 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Linking, Pressable, ScrollView, Share, Text, View } from 'react-native';
 import { Banner, Button, Card, Pill, Row, Screen, Txt } from '../../components/ui';
 import { styleFor, WaterMap } from '../../components/WaterMap';
-import { kvGet } from '../../lib/db';
+import { kvGet, kvSet } from '../../lib/db';
 import { getConsent, LOCATION_PURPOSE, requestOsPermission, setConsent, useLocation } from '../../lib/location';
 import { useApp } from '../../lib/store';
+import { BASEMAP_LABELS, type BasemapKind } from '../../lib/tiles';
 import { space, useColors } from '../../lib/theme';
 
 const STATUS_TEXT: Record<string, { label: string; kind: 'info' | 'warn' | 'error' | 'success' | 'neutral' }> = {
@@ -19,7 +20,7 @@ const STATUS_TEXT: Record<string, { label: string; kind: 'info' | 'warn' | 'erro
 
 export default function MapScreen() {
   const c = useColors();
-  const { boot, maps, activeGroup, setActiveGroup, session } = useApp();
+  const { boot, maps, activeGroup, setActiveGroup, session, online } = useApp();
   const [consent, setConsentState] = useState<boolean | null>(null);
   const [askConsent, setAskConsent] = useState(false);
   const [permError, setPermError] = useState<string | null>(null);
@@ -27,6 +28,15 @@ export default function MapScreen() {
   const [legend, setLegend] = useState(false);
   const [news, setNews] = useState<any[]>([]);
   const { pos, error: locError } = useLocation(!!consent);
+  const googleKey = boot?.basemap.googleKey ?? null;
+  const [basemapChoice, setBasemapChoice] = useState<BasemapKind | null>(null);
+  useEffect(() => { kvGet<BasemapKind>('map:basemap').then((b) => setBasemapChoice(b ?? null)); }, []);
+  const basemap: BasemapKind = googleKey ? (basemapChoice ?? 'google_roadmap') : 'swisstopo';
+  const nextBasemap = () => {
+    const order: BasemapKind[] = ['google_roadmap', 'google_satellite', 'swisstopo'];
+    const n = order[(order.indexOf(basemap) + 1) % order.length];
+    setBasemapChoice(n); kvSet('map:basemap', n);
+  };
 
   useEffect(() => { getConsent().then(setConsentState); }, []);
   useFocusEffect(useCallback(() => { if (session) kvGet<any[]>(`news:${session.personId}`).then((n) => setNews(n ?? [])); }, [session]));
@@ -77,6 +87,7 @@ export default function MapScreen() {
             ? <Button label="Standort aus" onPress={disableLocation} style={{ flex: 1, minHeight: 48, paddingHorizontal: 6 }} />
             : <Button label="Standort anzeigen" onPress={() => setAskConsent(true)} style={{ flex: 1, minHeight: 48, paddingHorizontal: 6 }} testID="map-location-on" />}
           {pos ? <Button label="Teilen" onPress={() => Share.share({ message: `Mein Standort (ungefähr): https://map.geo.admin.ch/?swisssearch=${pos.lat.toFixed(5)},${pos.lon.toFixed(5)}` })} style={{ flex: 1, minHeight: 48, paddingHorizontal: 6 }} accessibilityHint="Standort als Link teilen" /> : null}
+          {googleKey ? <Button label={BASEMAP_LABELS[basemap]} onPress={nextBasemap} style={{ flex: 1, minHeight: 48, paddingHorizontal: 6 }} accessibilityHint="Kartenhintergrund wechseln: Google Karte, Google Satellit, swisstopo" testID="map-basemap" /> : null}
           <Button label={legend ? 'Legende ✕' : 'Legende'} onPress={() => setLegend(!legend)} style={{ flex: 1, minHeight: 48, paddingHorizontal: 6 }} />
         </View>
         {askConsent ? (
@@ -91,7 +102,7 @@ export default function MapScreen() {
         {legend ? <Legend /> : null}
       </View>
       <View style={{ flex: 1 }}>
-        <WaterMap sections={bundle.sections} closures={closures} conditionWaterKeys={currentConditionKeys} location={pos} selectedId={selected?.id ?? null} onSelect={setSelected} attribution={boot.basemap.attribution} />
+        <WaterMap sections={bundle.sections} closures={closures} conditionWaterKeys={currentConditionKeys} location={pos} selectedId={selected?.id ?? null} onSelect={setSelected} attribution={boot.basemap.attribution} basemap={basemap} googleKey={googleKey} online={online} />
         {selected ? (
           <View style={{ position: 'absolute', left: 0, right: 0, bottom: 0, maxHeight: '62%', backgroundColor: c.surface, borderTopLeftRadius: 18, borderTopRightRadius: 18, borderTopWidth: 1, borderColor: c.line }}>
             <ScrollView contentContainerStyle={{ padding: space.l, gap: 8 }}>

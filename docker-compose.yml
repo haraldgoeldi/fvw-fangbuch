@@ -40,6 +40,9 @@ services:
       MAIL_MODE: draft
       PUSH_MODE: draft
       MYMAPS_MODE: live
+      # Google-Kartenhintergrund: Schlüssel in die Datei .env neben dieser Datei schreiben
+      # (Zeile GOOGLE_MAPS_API_KEY=...). Ohne Schlüssel zeigt die App nur swisstopo.
+      GOOGLE_MAPS_API_KEY: ${GOOGLE_MAPS_API_KEY:-}
     volumes:
       - backend-data:/app-data
     ports:

@@ -144,7 +144,7 @@ export function appRoutes(ctx: AppContext) {
       warden,
       integrations: integrations.map((i) => ({ ...i, label: INTEGRATION_LABELS[i.key as keyof typeof INTEGRATION_LABELS] ?? i.key })),
       decisions,
-      basemap: { attribution: '© Data: swisstopo', variants: Object.keys(basemapFiles).filter((v) => existsSync(resolve(BASEMAP_DIR, basemapFiles[v]))) },
+      basemap: { attribution: '© Data: swisstopo', variants: Object.keys(basemapFiles).filter((v) => existsSync(resolve(BASEMAP_DIR, basemapFiles[v]))), googleKey: ctx.cfg.GOOGLE_MAPS_API_KEY ?? null },
     });
   });
 

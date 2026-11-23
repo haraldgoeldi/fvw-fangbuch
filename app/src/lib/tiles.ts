@@ -10,7 +10,18 @@ import { kvGet, kvSet } from './db';
  *  - «detail» (bis Zoom 16, ca. 35 MB) kann bei Verbindung heruntergeladen werden.
  * Im Browser (nur Vorschau/Test) werden die Kacheln online vom Backend geladen.
  */
-export interface TileSource { minZoom: number; maxZoom: number; label: string; get(z: number, x: number, y: number): Promise<string | null> }
+export interface TileSource {
+  minZoom: number; maxZoom: number; label: string;
+  /** Quellenangabe unten rechts auf der Karte (Pflicht bei swisstopo und Google). */
+  attribution: string;
+  /** Kacheln haben doppelte Auflösung (512 px) – keine feinere Zoomstufe nötig. */
+  hiDpi?: boolean;
+  get(z: number, x: number, y: number): Promise<string | null>;
+}
+
+/** Kartenhintergrund: Google (nur online) oder swisstopo (immer offline verfügbar). */
+export type BasemapKind = 'google_roadmap' | 'google_satellite' | 'swisstopo';
+export const BASEMAP_LABELS: Record<BasemapKind, string> = { google_roadmap: 'Google Karte', google_satellite: 'Google Satellit', swisstopo: 'swisstopo' };
 
 const DETAIL_SHA_KEY = 'basemap:detail:sha256';
 // Name mit Version: importDatabaseFromAssetAsync überschreibt eine vorhandene Datei nicht.
@@ -58,11 +69,11 @@ async function readTile(db: SQLite.SQLiteDatabase, z: number, x: number, y: numb
 
 export async function tileSource(): Promise<TileSource> {
   if (Platform.OS === 'web') {
-    return { minZoom: 11, maxZoom: 16, label: 'online (Browser-Vorschau)', get: async (z, x, y) => `${API_URL}/api/basemap/${z > 14 ? 'detail' : 'basis'}/tiles/${z}/${x}/${y}.jpg` };
+    return { minZoom: 11, maxZoom: 16, label: 'online (Browser-Vorschau)', attribution: '© Data: swisstopo', get: async (z, x, y) => `${API_URL}/api/basemap/${z > 14 ? 'detail' : 'basis'}/tiles/${z}/${x}/${y}.jpg` };
   }
   const detail = await openDetail();
   return {
-    minZoom: 11, maxZoom: detail ? 16 : 14, label: detail ? 'Offline-Paket Detail (Zoom 11–16)' : 'Offline-Paket Basis (Zoom 11–14)',
+    minZoom: 11, maxZoom: detail ? 16 : 14, attribution: '© Data: swisstopo', label: detail ? 'Offline-Paket Detail (Zoom 11–16)' : 'Offline-Paket Basis (Zoom 11–14)',
     get: async (z, x, y) => {
       const k = `${z}/${x}/${y}`;
       if (cache.has(k)) return cache.get(k)!;
@@ -116,4 +127,46 @@ export async function downloadDetailPackage(): Promise<void> {
   if (sha) await kvSet(DETAIL_SHA_KEY, sha);
   detailDb = null;
   cache.clear();
+}
+
+// ---------------------------------------------------------------- Google Map Tiles API
+// https://developers.google.com/maps/documentation/tile/2d-tiles-overview
+// Kacheln werden nur online geladen und nicht dauerhaft gespeichert (Google-Nutzungsbedingungen).
+const GOOGLE = 'https://tile.googleapis.com';
+const googleSessions = new Map<string, Promise<TileSource>>();
+
+async function createGoogleSource(key: string, mapType: 'roadmap' | 'satellite'): Promise<TileSource> {
+  const r = await fetch(`${GOOGLE}/v1/createSession?key=${encodeURIComponent(key)}`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ mapType, language: 'de-CH', region: 'CH', scale: 'scaleFactor2x', highDpi: true }),
+  });
+  if (!r.ok) throw new Error(`Google-Karte nicht verfügbar (${r.status})`);
+  const { session } = await r.json() as { session: string };
+  const q = `session=${encodeURIComponent(session)}&key=${encodeURIComponent(key)}`;
+  let copyright = '';
+  try {
+    // Quellenangabe für das Vereinsgebiet (Pflicht laut Google)
+    const v = await fetch(`${GOOGLE}/tile/v1/viewport?${q}&zoom=13&north=47.29&south=47.08&east=9.56&west=9.36`);
+    if (v.ok) copyright = ((await v.json()) as { copyright?: string }).copyright ?? '';
+  } catch { /* Quellenangabe optional nachladen */ }
+  return {
+    minZoom: 0, maxZoom: 20, hiDpi: true,
+    label: mapType === 'satellite' ? 'Google Satellit' : 'Google Karte',
+    attribution: `Google${copyright ? ` · ${copyright}` : ''}`,
+    get: async (z, x, y) => `${GOOGLE}/v1/2dtiles/${z}/${x}/${y}?${q}`,
+  };
+}
+
+/** Kachelquelle für den gewählten Hintergrund; ohne Netz oder Schlüssel immer swisstopo. */
+export async function basemapSource(kind: BasemapKind, googleKey: string | null | undefined, online: boolean): Promise<TileSource> {
+  if (kind === 'swisstopo' || !googleKey || !online) return tileSource();
+  const mapType = kind === 'google_satellite' ? 'satellite' : 'roadmap';
+  const k = `${googleKey}|${mapType}`;
+  if (!googleSessions.has(k)) googleSessions.set(k, createGoogleSource(googleKey, mapType));
+  try {
+    return await googleSessions.get(k)!;
+  } catch {
+    googleSessions.delete(k);
+    return tileSource();
+  }
 }
